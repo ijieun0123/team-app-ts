@@ -1,0 +1,110 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    z-index: 10;
+    background: var(--black-color);
+    box-shadow: var(--shadow-color);
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .container .logo {
+}
+header .container .menu_btn {
+    display: none;
+}
+header .container nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+header .container nav a {
+    color: rgba(255, 255, 252556, 0.8);
+    font-size: 16px;
+}
+header .container nav .get_access_btn {
+    display: inline-block;
+    padding: 7px 20px;
+    background: rgba(255, 255, 252556, 0.3);
+    line-height: 1.8;
+    border-radius: 4px;
+}
+header .container nav .close_btn {
+    display: none;
+}
+/* black */
+header.black {
+    background: #fff;
+}
+header.black .container nav a {
+    color: var(--black-color);
+    transition: 0.2s;
+}
+header.black .container nav .get_access_btn {
+    background: rgba(31, 205, 205, 0.15);
+    color: var(--blue-color);
+    transition: 0.2s;
+}
+
+@media (max-width: 768px) {
+    header .container .logo {
+        width: 58px;
+    }
+    header .container nav {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    header .container .menu_btn {
+        display: block;
+        width: 25px;
+        cursor: pointer;
+    }
+    header .container nav {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 80px 20px;
+        align-items: baseline;
+        width: 100%;
+        height: 100vh;
+        background: #fff url(../img/black_logo.svg) no-repeat 16px 16px;
+        transition: 0.2s;
+        opacity: 0;
+        visibility: hidden;
+    }
+    header.menu_open .container nav {
+        opacity: 1;
+        left: 0;
+        visibility: visible;
+    }
+    /* header.menu_close .container nav {
+        opacity: 0;
+        left: -100%;
+        visibility: hidden;
+    } */
+    header .container nav a {
+        color: var(--gray-color);
+    }
+    header .container nav .get_access_btn {
+        padding: 0 10px;
+        background: rgba(81, 92, 111, 0.2);
+    }
+    header .container nav .close_btn {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        display: block;
+        width: 25px;
+        cursor: pointer;
+    }
+}

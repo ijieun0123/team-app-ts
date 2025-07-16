@@ -1,0 +1,117 @@
+body {
+    min-height: 100vh;
+}
+.blog .title_box {
+    margin: 218px 0 60px;
+}
+.blog .title_box .title {
+    margin-bottom: 10px;
+}
+.blog .title_box .paragraph {
+}
+.blog .card_box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.blog .card_box .card {
+    flex: 0 0 calc((100% - 60px) / 3);
+    margin-bottom: 60px;
+    cursor: pointer;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: var(--shadow-color);
+}
+.blog .card_box .card > img {
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: cover;
+}
+.blog .card_box .card .txt_box {
+    padding: 20px;
+    background: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.blog .card_box .card .txt_box .card_title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 줄 수 제한 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.blog .card_box .card .txt_box > .caption {
+    margin: 10px 0 48px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* 줄 수 제한 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.blog .card_box .card .txt_box .avatar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.blog .card_box .card .txt_box .avatar > img {
+    margin-right: 5px;
+}
+.blog .card_box .card .txt_box .avatar caption {
+}
+.blog .card_box .card .txt_box .avatar span:nth-child(3) {
+    opacity: 0.2;
+}
+.blog .next_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 168px;
+    height: 46px;
+    margin: 0 auto 150px;
+    background: rgba(81, 92, 111, 0.1);
+    border-radius: 4px;
+}
+.blog .next_btn span {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+@media (max-width: 1024px) {
+    .blog .title_box {
+        margin: 153px 0 40px;
+    }
+    .blog .card_box {
+        gap: 20px;
+    }
+    .blog .card_box .card {
+        flex: 0 0 calc((100% - 30px) / 2);
+        margin-bottom: 40px;
+    }
+    .blog .next_btn {
+        width: 162px;
+        height: 46px;
+        margin: 20px auto 100px;
+    }
+}
+
+@media (max-width: 600px) {
+    .blog .title_box {
+        margin: 103px 0 30px;
+    }
+    .blog .title_box .title {
+        margin-bottom: 15px;
+    }
+    .blog .card_box {
+        gap: 0;
+    }
+    .blog .card_box .card {
+        flex: 0 0 100%;
+    }
+    .blog .next_btn {
+        width: 162px;
+        height: 46px;
+        margin: 0 auto 80px;
+    }
+}

@@ -1,0 +1,103 @@
+footer {
+    position: relative;
+    padding: 60px 0 30px;
+    background: var(--black-color);
+    color: #fff;
+}
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+footer .container .identity_box {
+    margin-bottom: 50px;
+}
+footer .container .identity_box > img {
+    margin-bottom: 20px;
+}
+footer .container .identity_box .identity_text {
+    font-size: 14px;
+    opacity: 50%;
+}
+footer .container .footer_group {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+footer .container .footer_group > div {
+    width: 169px;
+}
+footer .container .footer_group > div.stay_up_to_date {
+    width: 267px;
+}
+footer .container .footer_group > div h3 {
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+footer .container .footer_group > div .links {
+}
+footer .container .footer_group > div .links a {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    opacity: 50%;
+}
+footer .container .footer_group > div .links p {
+    font-size: 14px;
+    opacity: 50%;
+}
+footer .container .footer_group > div.stay_up_to_date .email_box {
+    position: relative;
+    width: 100%;
+    height: 39px;
+    margin-top: 20px;
+}
+footer .container .footer_group > div.stay_up_to_date .email_box input {
+    width: 100%;
+    height: 100%;
+    padding: 7px 15px;
+    border-radius: 4px;
+    background: rgba(255, 255, 252556, 0.3);
+    color: #fff;
+}
+footer
+    .container
+    .footer_group
+    > div.stay_up_to_date
+    .email_box
+    input::placeholder {
+    opacity: 50%;
+    color: #fff;
+}
+footer .container .footer_group > div.stay_up_to_date .email_box button {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+}
+footer .container .copyright {
+    font-size: 14px;
+    opacity: 50%;
+    justify-items: flex-start;
+    margin-top: 230px;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 50px 0 30px;
+    }
+    footer .container .identity_box {
+        margin-bottom: 45px;
+    }
+    footer .container .identity_box > img {
+        width: 58px;
+        margin-bottom: 15px;
+    }
+    footer .container .footer_group {
+        flex-direction: column;
+        gap: 45px;
+    }
+    footer .container .copyright {
+        margin-top: 100px;
+    }
+}
