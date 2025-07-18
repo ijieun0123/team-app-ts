@@ -12,7 +12,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
-            <BrowserRouter>
+            <BrowserRouter basename="/team-app-ts/">
                 <Header />
                 <Routes>
                     <Route path="/" element={<Home />}></Route>
