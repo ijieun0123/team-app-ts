@@ -94,11 +94,11 @@ const Home: FC = () => {
             <section className="hub">
                 <div className="container">
                     <div className={`txt_box ${isVisible ? "visible" : ""}`}>
-                        <h1 className="title fade_up item_1">
+                        <h2 className="title fade_up item_1">
                             Your Hub for
                             <br />
                             teamwork
-                        </h1>
+                        </h2>
                         <p className="paragraph fade_up item_2">
                             In Team App, you’ve got all the flexiblity to work
                             <br className="tablet_br" />
@@ -141,10 +141,10 @@ const Home: FC = () => {
                         alt="management image"
                     />
                     <div className={`txt_box ${isVisible ? "visible" : ""}`}>
-                        <h1 className="title fade_up item_1">
+                        <h2 className="title fade_up item_1">
                             Simple task <br />
                             management
-                        </h1>
+                        </h2>
                         <p className="paragraph fade_up item_2">
                             Tast management with Team App is as simple as it
                             gets. No complicated layout and need for user
@@ -166,11 +166,11 @@ const Home: FC = () => {
             <section className="scheduling">
                 <div className="container">
                     <div className={`txt_box ${isVisible ? "visible" : ""}`}>
-                        <h1 className="title fade_up item_1">
+                        <h2 className="title fade_up item_1">
                             Scheduling that
                             <br />
                             actually works
-                        </h1>
+                        </h2>
                         <p className="paragraph fade_up item_2">
                             Integrate the Team calendar with your favorite
                             calendar app, be it Google Calendar or iCal. Each
@@ -206,7 +206,7 @@ const Home: FC = () => {
             {/* review 섹션 */}
             <section className="review">
                 <div className="container">
-                    <h1 className="title">What people say about</h1>
+                    <h2 className="title">What people say about</h2>
                     <div
                         className={`card_box ${isVisible ? "visible" : ""}`}
                         ref={cardBoxRef}
