@@ -128,17 +128,17 @@ const Home: FC = () => {
                     <img
                         className="desktop_management_img"
                         src="/team-app-ts/img/desktop_management.svg"
-                        alt="management"
+                        alt="management image"
                     />
                     <img
                         className="tablet_management_img"
                         src="/team-app-ts/img/tablet_management.svg"
-                        alt="management"
+                        alt="management image"
                     />
                     <img
                         className="mobile_management_img"
                         src="/team-app-ts/img/mobile_management.svg"
-                        alt="management"
+                        alt="management image"
                     />
                     <div className={`txt_box ${isVisible ? "visible" : ""}`}>
                         <h1 className="title fade_up item_1">
@@ -189,17 +189,17 @@ const Home: FC = () => {
                     <img
                         className="desktop_scheduling_img"
                         src="/team-app-ts/img/desktop_scheduling.svg"
-                        alt="scheduling"
+                        alt="scheduling image"
                     />
                     <img
                         className="tablet_scheduling_img"
                         src="/team-app-ts/img/tablet_scheduling.svg"
-                        alt="scheduling"
+                        alt="scheduling image"
                     />
                     <img
                         className="mobile_scheduling_img"
                         src="/team-app-ts/img/mobile_scheduling.svg"
-                        alt="scheduling"
+                        alt="scheduling image"
                     />
                 </div>
             </section>

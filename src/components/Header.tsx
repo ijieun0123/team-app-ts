@@ -54,7 +54,7 @@ const Header: React.FC = () => {
                                 ? "/team-app-ts/img/black_logo.svg"
                                 : "/team-app-ts/img/white_logo.png"
                         }
-                        alt="로고"
+                        alt="team app logo"
                     />
                 </Link>
                 <button

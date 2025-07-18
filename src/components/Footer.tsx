@@ -5,7 +5,10 @@ const Footer: React.FC = () => {
         <footer>
             <div className="container">
                 <div className="identity_box">
-                    <img src="/team-app-ts/img/white_logo.png" alt="logo" />
+                    <img
+                        src="/team-app-ts/img/white_logo.png"
+                        alt="team app logo"
+                    />
                     <p className="identity_text">
                         The last team chat you will ever need.
                     </p>
