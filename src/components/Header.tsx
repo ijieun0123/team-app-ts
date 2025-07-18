@@ -6,17 +6,20 @@ const Header: React.FC = () => {
     const location = useLocation();
     const headerRef = useRef<HTMLElement | null>(null);
     const [isDark, setIsDark] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleHamburgerClick = () => {
         if (headerRef.current) {
             headerRef.current.classList.add("menu_open");
         }
+        setIsMenuOpen(true);
     };
 
     const handleCloseBtnClick = () => {
         if (headerRef.current) {
             headerRef.current.classList.remove("menu_open");
         }
+        setIsMenuOpen(false);
     };
 
     useEffect(() => {
@@ -61,6 +64,8 @@ const Header: React.FC = () => {
                     className="menu_btn"
                     onClick={handleHamburgerClick}
                     aria-label="Open menu"
+                    aria-expanded={isMenuOpen}
+                    aria-controls="menu"
                 >
                     <img
                         src={
@@ -71,7 +76,7 @@ const Header: React.FC = () => {
                         alt="menu"
                     />
                 </button>
-                <nav>
+                <nav id="menu">
                     <Link to="#">Product</Link>
                     <Link to="/blog">Blog</Link>
                     <Link to="#">Contact</Link>
@@ -83,6 +88,8 @@ const Header: React.FC = () => {
                         className="close_btn"
                         onClick={handleCloseBtnClick}
                         aria-label="Close menu"
+                        aria-expanded={!isMenuOpen}
+                        aria-controls="menu"
                     >
                         <img
                             src="/team-app-ts/img/close_btn.svg"
