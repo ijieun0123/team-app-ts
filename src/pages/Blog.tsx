@@ -2,15 +2,8 @@ import type { FC } from "react";
 import { blogCardData } from "../data/blogCardData";
 import BlogCard from "../components/BlogCard";
 import "../styles/Blog.css";
-import { useNavigate } from "react-router-dom";
 
 const Blog: FC = () => {
-    const navigate = useNavigate();
-
-    const handleCardClick = () => {
-        navigate(`/blog-detail`);
-    };
-
     return (
         <section className="blog">
             <div className="container">
@@ -25,7 +18,6 @@ const Blog: FC = () => {
                     {/* card */}
                     {blogCardData.map((item, idx) => (
                         <BlogCard
-                            onClick={handleCardClick}
                             key={idx}
                             cardImage={item.cardImage}
                             title={item.title}

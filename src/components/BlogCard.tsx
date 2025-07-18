@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type BlogCardProps = {
     cardImage: string;
     title: string;
@@ -5,7 +7,6 @@ type BlogCardProps = {
     avatarImage: string;
     avatarName: string;
     createdAt: string;
-    onClick?: () => void;
 };
 
 const BlogCard = ({
@@ -15,10 +16,13 @@ const BlogCard = ({
     avatarImage,
     avatarName,
     createdAt,
-    onClick,
 }: BlogCardProps) => {
     return (
-        <div className="card" onClick={onClick}>
+        <Link
+            to="/blog-detail"
+            className="card"
+            aria-label={`블로그 카드 - ${title}`}
+        >
             <img src={cardImage} alt="카드 이미지" />
             <div className="txt_box">
                 <h3 className="card_title">{title}</h3>
@@ -30,7 +34,7 @@ const BlogCard = ({
                     <span className="caption">{createdAt}</span>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 
