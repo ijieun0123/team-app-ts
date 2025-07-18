@@ -67,11 +67,22 @@ const Footer: React.FC = () => {
                             <p>Subscribe to our newsletter.</p>
                         </div>
                         <form className="email_box">
-                            <input type="text" placeholder="Email" />
+                            <label
+                                htmlFor="footerEmail"
+                                className="visually_hidden"
+                            >
+                                Email
+                            </label>
+                            <input
+                                id="footerEmail"
+                                type="text"
+                                placeholder="Email"
+                            />
                             <button type="submit" aria-label="Email submit">
                                 <img
                                     src="/team-app-ts/img/footer_email_arrow.svg"
-                                    alt="arrow"
+                                    alt=""
+                                    aria-hidden="true"
                                 />
                             </button>
                         </form>
