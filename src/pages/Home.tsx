@@ -3,8 +3,7 @@ import "../styles/Home.css";
 import ReviewCard from "../components/ReviewCard";
 import { reviewCardData } from "../data/reviewCardData";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "swiper/css";
 import "swiper/css/navigation";
