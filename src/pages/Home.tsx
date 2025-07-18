@@ -112,7 +112,11 @@ const Home: FC = () => {
                             <br className="tablet_br" />
                             huddle to talk things out live.
                         </p>
-                        <a href="#" className="link fade_up item_3">
+                        <a
+                            href="#"
+                            className="link fade_up item_3"
+                            aria-label="Learn more about Hub"
+                        >
                             Learn More
                             <img
                                 src="/team-app-ts/img/learn_more_arrow.svg"
@@ -152,7 +156,11 @@ const Home: FC = () => {
                             how to navigate the platform. it’s so simple a baby
                             could do it!
                         </p>
-                        <a href="#" className="link fade_up item_3">
+                        <a
+                            href="#"
+                            className="link fade_up item_3"
+                            aria-label="Learn more about Management"
+                        >
                             Learn More
                             <img
                                 src="/team-app-ts/img/learn_more_arrow.svg"
@@ -178,7 +186,11 @@ const Home: FC = () => {
                             while all the data is synced with the master
                             calendar.
                         </p>
-                        <a href="#" className="link fade_up item_3">
+                        <a
+                            href="#"
+                            className="link fade_up item_3"
+                            aria-label="Learn more about Scheduling"
+                        >
                             Learn More
                             <img
                                 src="/team-app-ts/img/learn_more_arrow.svg"
