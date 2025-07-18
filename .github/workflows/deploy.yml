@@ -1,0 +1,36 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+    push:
+        branches:
+            - main # main 브랜치에 푸시될 때 실행
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0 # 전체 커밋 내역 가져오기 (필수는 아님)
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18 # 필요에 따라 버전 조정
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build project
+              run: npm run build
+
+            - name: Deploy to GitHub Pages
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./dist
+                  publish_branch: gh-pages
+                  user_name: "github-actions"
+                  user_email: "github-actions@github.com"
