@@ -16,31 +16,50 @@ const Footer: React.FC = () => {
                 <div className="footer_group">
                     <div className="company">
                         <h3>Company</h3>
-                        <div className="links">
-                            <a href="#">Product</a>
-                            <a href="#">Blog</a>
-                            <a href="#">Support</a>
-                        </div>
+                        <ul className="links">
+                            <li>
+                                <a href="#">Product</a>
+                            </li>
+                            <li>
+                                <a href="#">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#">Support</a>
+                            </li>
+                        </ul>
                     </div>
                     <div className="features">
                         <h3>Features</h3>
-                        <div className="links">
-                            <a href="#">Screen Sharing</a>
-                            <a href="#">Knowledgebase</a>
-                            <a href="#">Tutorials</a>
-                            <a href="#">User Management</a>
-                        </div>
+                        <ul className="links">
+                            <li>
+                                <a href="#">Screen Sharing</a>
+                            </li>
+                            <li>
+                                <a href="#">Knowledgebase</a>
+                            </li>
+                            <li>
+                                <a href="#">Tutorials</a>
+                            </li>
+                            <li>
+                                <a href="#">User Management</a>
+                            </li>
+                        </ul>
                     </div>
                     <div className="contact_us">
                         <h3>Contact Us</h3>
-                        <address className="links">
-                            <a href="mailto:info@chatapp.com">
-                                info@chatapp.com
-                            </a>
-                            <a href="tel:1800200300">1-800-200-300</a>
-                            <br />
-                            <p>3500 Deer Creek Rd Palo Alto, CA</p>
-                        </address>
+                        <ul className="links">
+                            <li>
+                                <a href="mailto:info@chatapp.com">
+                                    info@chatapp.com
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:1800200300">1-800-200-300</a>
+                            </li>
+                            <li>
+                                <p>3500 Deer Creek Rd Palo Alto, CA</p>
+                            </li>
+                        </ul>
                     </div>
                     <div className="stay_up_to_date">
                         <h3>Stay up to date</h3>
