@@ -30,7 +30,8 @@ main {
 /* ========== hero section ========== */
 .hero {
     height: 800px;
-    background: url(/img/desktop_hero_section_bg.png) no-repeat center/cover;
+    background: url(/team-app-ts/img/desktop_hero_section_bg.png) no-repeat
+        center/cover;
 }
 .hero .container {
     display: flex;
@@ -90,7 +91,8 @@ main {
 @media (max-width: 900px) {
     .hero {
         height: 800px;
-        background: url(/img/tablet_hero_section_bg.png) no-repeat center/cover;
+        background: url(/team-app-ts/img/tablet_hero_section_bg.png) no-repeat
+            center/cover;
     }
     .hero .container .left_box {
         margin-top: -200px;
@@ -114,7 +116,8 @@ main {
 @media (max-width: 650px) {
     .hero {
         height: 800px;
-        background: url(/img/mobile_hero_section_bg.png) no-repeat center/cover;
+        background: url(/team-app-ts/img/mobile_hero_section_bg.png) no-repeat
+            center/cover;
     }
     .hero .tablet_br {
         display: none;
@@ -156,7 +159,8 @@ main {
 @media (max-width: 480px) {
     .hero {
         height: 685px;
-        background: url(/img/mobile_hero_section_bg.png) no-repeat center/cover;
+        background: url(/team-app-ts/img/mobile_hero_section_bg.png) no-repeat
+            center/cover;
     }
     .hero .container .left_box {
         margin-top: 60px;
@@ -295,7 +299,7 @@ main {
 
 /* ========== hub 섹션 ========== */
 .hub {
-    background: url(/img/desktop_dashboard.svg) no-repeat;
+    background: url(/team-app-ts/img/desktop_dashboard.svg) no-repeat;
     background-position-x: right;
     background-position-y: center;
 }
@@ -305,7 +309,7 @@ main {
 
 @media (max-width: 1240px) {
     .hub {
-        background: url(/img/tablet_dashboard.svg) no-repeat;
+        background: url(/team-app-ts/img/tablet_dashboard.svg) no-repeat;
         background-position-x: right;
         background-position-y: center;
     }
@@ -328,7 +332,7 @@ main {
 
 @media (max-width: 620px) {
     .hub {
-        background: url(/img/mobile_dashboard.svg) no-repeat;
+        background: url(/team-app-ts/img/mobile_dashboard.svg) no-repeat;
         background-position-x: right;
         background-position-y: 40px;
     }

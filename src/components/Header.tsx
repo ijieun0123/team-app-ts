@@ -51,8 +51,8 @@ const Header: React.FC = () => {
                         className="header_logo"
                         src={
                             isDark
-                                ? "/img/black_logo.svg"
-                                : "/img/white_logo.png"
+                                ? "/team-app-ts/img/black_logo.svg"
+                                : "/team-app-ts/img/white_logo.png"
                         }
                         alt="로고"
                     />
@@ -61,8 +61,8 @@ const Header: React.FC = () => {
                     <img
                         src={
                             isDark
-                                ? "/img/black_menu.svg"
-                                : "/img/white_menu.svg"
+                                ? "/team-app-ts/img/black_menu.svg"
+                                : "/team-app-ts/img/white_menu.svg"
                         }
                         alt="menu"
                     />
@@ -76,7 +76,10 @@ const Header: React.FC = () => {
                         Get Access
                     </Link>
                     <button className="close_btn" onClick={handleCloseBtnClick}>
-                        <img src="/img/close_btn.svg" alt="close button" />
+                        <img
+                            src="/team-app-ts/img/close_btn.svg"
+                            alt="close button"
+                        />
                     </button>
                 </nav>
             </div>

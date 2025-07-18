@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
         <footer>
             <div className="container">
                 <div className="identity_box">
-                    <img src="/img/white_logo.png" alt="logo" />
+                    <img src="/team-app-ts/img/white_logo.png" alt="logo" />
                     <p className="identity_text">
                         The last team chat you will ever need.
                     </p>
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
                             <input type="text" placeholder="Email" />
                             <button type="submit">
                                 <img
-                                    src="/img/footer_email_arrow.svg"
+                                    src="/team-app-ts/img/footer_email_arrow.svg"
                                     alt="arrow"
                                 />
                             </button>

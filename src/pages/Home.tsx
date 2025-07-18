@@ -112,7 +112,10 @@ const Home: FC = () => {
                         </p>
                         <a href="#" className="link fade_up item_3">
                             Learn More
-                            <img src="/img/learn_more_arrow.svg" alt="→" />
+                            <img
+                                src="/team-app-ts/img/learn_more_arrow.svg"
+                                alt="→"
+                            />
                         </a>
                     </div>
                 </div>
@@ -122,17 +125,17 @@ const Home: FC = () => {
                 <div className="container">
                     <img
                         className="desktop_management_img"
-                        src="/img/desktop_management.svg"
+                        src="/team-app-ts/img/desktop_management.svg"
                         alt="management"
                     />
                     <img
                         className="tablet_management_img"
-                        src="/img/tablet_management.svg"
+                        src="/team-app-ts/img/tablet_management.svg"
                         alt="management"
                     />
                     <img
                         className="mobile_management_img"
-                        src="/img/mobile_management.svg"
+                        src="/team-app-ts/img/mobile_management.svg"
                         alt="management"
                     />
                     <div className={`txt_box ${isVisible ? "visible" : ""}`}>
@@ -149,7 +152,10 @@ const Home: FC = () => {
                         </p>
                         <a href="#" className="link fade_up item_3">
                             Learn More
-                            <img src="/img/learn_more_arrow.svg" alt="→" />
+                            <img
+                                src="/team-app-ts/img/learn_more_arrow.svg"
+                                alt="→"
+                            />
                         </a>
                     </div>
                 </div>
@@ -172,22 +178,25 @@ const Home: FC = () => {
                         </p>
                         <a href="#" className="link fade_up item_3">
                             Learn More
-                            <img src="/img/learn_more_arrow.svg" alt="→" />
+                            <img
+                                src="/team-app-ts/img/learn_more_arrow.svg"
+                                alt="→"
+                            />
                         </a>
                     </div>
                     <img
                         className="desktop_scheduling_img"
-                        src="/img/desktop_scheduling.svg"
+                        src="/team-app-ts/img/desktop_scheduling.svg"
                         alt="scheduling"
                     />
                     <img
                         className="tablet_scheduling_img"
-                        src="/img/tablet_scheduling.svg"
+                        src="/team-app-ts/img/tablet_scheduling.svg"
                         alt="scheduling"
                     />
                     <img
                         className="mobile_scheduling_img"
-                        src="/img/mobile_scheduling.svg"
+                        src="/team-app-ts/img/mobile_scheduling.svg"
                         alt="scheduling"
                     />
                 </div>

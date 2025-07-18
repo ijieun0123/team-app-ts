@@ -9,13 +9,16 @@ const BlogDetail: FC = () => {
                     10 Secret tips for managing a remote team
                 </h1>
                 <div className="avatar">
-                    <img src="/img/blog_avatar_1.svg" alt="avatar" />
+                    <img
+                        src="/team-app-ts/img/blog_avatar_1.svg"
+                        alt="avatar"
+                    />
                     <span className="caption">Kristin Watson</span>
                     <span className="line">|</span>
                     <span className="caption">25 January 2025</span>
                 </div>
                 <img
-                    src="/img/blog_1.svg"
+                    src="/team-app-ts/img/blog_1.svg"
                     alt="blog image"
                     className="post_img"
                 />
@@ -89,7 +92,10 @@ const BlogDetail: FC = () => {
                     also deeply human.
                 </p>
                 <div className="written_by_box">
-                    <img src="/img/blog_avatar_1.svg" alt="avatar" />
+                    <img
+                        src="/team-app-ts/img/blog_avatar_1.svg"
+                        alt="avatar"
+                    />
                     <div className="txt_box">
                         <span className="written_by">WRITTEN BY</span>
                         <span className="name">Kristin Watson</span>
@@ -103,7 +109,10 @@ const BlogDetail: FC = () => {
                 <div className="conversation">
                     <p className="conversation_title">Join the conversation</p>
                     <div className="img_textarea">
-                        <img src="/img/blog_avatar_2.svg" alt="avatar" />
+                        <img
+                            src="/team-app-ts/img/blog_avatar_2.svg"
+                            alt="avatar"
+                        />
                         <textarea
                             name=""
                             id=""

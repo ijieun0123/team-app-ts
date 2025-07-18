@@ -14,11 +14,11 @@ const ReviewCard = ({
     return (
         <div className="card">
             <div className="stars">
-                <img src="/img/star.svg" alt="star" />
-                <img src="/img/star.svg" alt="star" />
-                <img src="/img/star.svg" alt="star" />
-                <img src="/img/star.svg" alt="star" />
-                <img src="/img/star.svg" alt="star" />
+                <img src="/team-app-ts/img/star.svg" alt="star" />
+                <img src="/team-app-ts/img/star.svg" alt="star" />
+                <img src="/team-app-ts/img/star.svg" alt="star" />
+                <img src="/team-app-ts/img/star.svg" alt="star" />
+                <img src="/team-app-ts/img/star.svg" alt="star" />
             </div>
             <p className="paragraph">{comments}</p>
             <div className="avatar">
