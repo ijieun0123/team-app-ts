@@ -13,6 +13,9 @@ function App() {
         <ThemeProvider theme={theme}>
             <GlobalStyle />
             <BrowserRouter basename="/team-app-ts/">
+                <a href="#main-content" className="skip-link">
+                    본문으로 바로가기
+                </a>
                 <Header />
                 <Routes>
                     <Route path="/" element={<Home />}></Route>

@@ -5,7 +5,7 @@ import "../styles/Blog.css";
 
 const Blog: FC = () => {
     return (
-        <section className="blog">
+        <main id="main-content" className="blog">
             <div className="container">
                 <div className="title_box">
                     <h1 className="title">Blog</h1>
@@ -33,7 +33,7 @@ const Blog: FC = () => {
                     <img src="img/next_arrow.svg" alt="next button" />
                 </button>
             </div>
-        </section>
+        </main>
     );
 };
 

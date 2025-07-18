@@ -3,7 +3,7 @@ import "../styles/BlogDetail.css";
 
 const BlogDetail: FC = () => {
     return (
-        <section className="blog_detail">
+        <main id="main-content" className="blog_detail">
             <div className="blog_detail_container">
                 <h1 className="title">
                     10 Secret tips for managing a remote team
@@ -124,7 +124,7 @@ const BlogDetail: FC = () => {
                     </div>
                 </form>
             </div>
-        </section>
+        </main>
     );
 };
 

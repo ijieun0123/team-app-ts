@@ -55,7 +55,7 @@ const Home: FC = () => {
     }, []);
 
     return (
-        <main>
+        <main id="main-content">
             {/* hero 섹션 */}
             <section className="hero">
                 <div className="container">
