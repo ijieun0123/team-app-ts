@@ -57,7 +57,11 @@ const Header: React.FC = () => {
                         alt="로고"
                     />
                 </Link>
-                <button className="menu_btn" onClick={handleHamburgerClick}>
+                <button
+                    className="menu_btn"
+                    onClick={handleHamburgerClick}
+                    aria-label="Open menu"
+                >
                     <img
                         src={
                             isDark
@@ -75,7 +79,11 @@ const Header: React.FC = () => {
                     <Link to="#" className="get_access_btn">
                         Get Access
                     </Link>
-                    <button className="close_btn" onClick={handleCloseBtnClick}>
+                    <button
+                        className="close_btn"
+                        onClick={handleCloseBtnClick}
+                        aria-label="Close menu"
+                    >
                         <img
                             src="/team-app-ts/img/close_btn.svg"
                             alt="close button"

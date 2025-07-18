@@ -36,7 +36,7 @@ const Blog: FC = () => {
                         />
                     ))}
                 </div>
-                <button className="next_btn">
+                <button className="next_btn" aria-label="Next">
                     <span className="caption">Next</span>
                     <img src="img/next_arrow.svg" alt="next button" />
                 </button>

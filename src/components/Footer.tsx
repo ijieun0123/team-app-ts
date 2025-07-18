@@ -1,4 +1,3 @@
-// github actions test
 import "../styles/Footer.css";
 
 const Footer: React.FC = () => {
@@ -47,7 +46,7 @@ const Footer: React.FC = () => {
                         </div>
                         <form className="email_box">
                             <input type="text" placeholder="Email" />
-                            <button type="submit">
+                            <button type="submit" aria-label="Email submit">
                                 <img
                                     src="/team-app-ts/img/footer_email_arrow.svg"
                                     alt="arrow"

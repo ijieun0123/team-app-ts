@@ -83,7 +83,9 @@ const Home: FC = () => {
                                 placeholder="Email"
                                 required
                             />
-                            <button type="submit">Get Early Access</button>
+                            <button type="submit" aria-label="Get Early Access">
+                                Get Early Access
+                            </button>
                         </form>
                     </div>
                 </div>
