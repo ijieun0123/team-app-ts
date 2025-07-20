@@ -5,7 +5,7 @@ import "../styles/Blog.css";
 
 const Blog: FC = () => {
     return (
-        <main id="main-content" className="blog">
+        <main id="main-content" className="blog" tabIndex={-1}>
             <div className="container">
                 <div className="title_box">
                     <h1 className="title">Blog</h1>

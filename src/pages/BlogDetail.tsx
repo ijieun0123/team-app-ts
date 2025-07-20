@@ -3,7 +3,7 @@ import "../styles/BlogDetail.css";
 
 const BlogDetail: FC = () => {
     return (
-        <main id="main-content" className="blog_detail">
+        <main id="main-content" className="blog_detail" tabIndex={-1}>
             <div className="blog_detail_container">
                 <h1 className="title">
                     10 Secret tips for managing a remote team
