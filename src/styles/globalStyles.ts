@@ -63,7 +63,7 @@ const GlobalStyle = createGlobalStyle`
         --blue-color: #3a46f7;
         --gray-color: #515c6f;
         --light-gray-color: #e5e5e5;
-        --red-color: #fc4a17;
+        --red-color: #c43b12;
         --yellow-color: #ffb33a;
         --shadow-color: 0px 15px 40px 0px rgba(37, 49, 60, 0.05);
     }

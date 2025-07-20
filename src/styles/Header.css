@@ -30,7 +30,7 @@ header .container nav a {
 header .container nav .get_access_btn {
     display: inline-block;
     padding: 7px 20px;
-    background: rgba(255, 255, 252556, 0.3);
+    background: rgba(0, 0, 0, 0.3);
     line-height: 1.8;
     border-radius: 4px;
 }
