@@ -272,7 +272,6 @@ main {
     .management .container > img.mobile_management_img,
     .scheduling .container > img.mobile_scheduling_img {
         display: block;
-        max-width: auto;
         min-width: auto;
     }
 }
