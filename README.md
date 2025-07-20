@@ -1,69 +1,44 @@
-# React + TypeScript + Vite
+# 🧑‍💻 Team App - Instant Collaboration for Remote Teams
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![banner](./assets/banner.png) <!-- 없다면 이 줄은 생략해도 됩니다 -->
 
-Currently, two official plugins are available:
+> 👥 원격 팀을 위한 협업 플랫폼  
+> 블로그, 일정, 팀 관리 등 다양한 기능으로 **실시간 협업 환경**을 제공합니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+단순한 레이아웃이지만, HTML 구조부터 시맨틱 태그 활용, ARIA 속성, 키보드 네비게이션 가능 여부까지 웹 표준과 웹 접근성을 철저히 고려하여 구현한 프로젝트입니다.
+특히 시각적 디자인보다 누구나 접근 가능한 웹을 만드는 데 집중하였으며, Lighthouse 및 W3C 검사도구를 통해 접근성 경고를 최소화했습니다.
 
-## Expanding the ESLint configuration
+<br/>
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🌐 배포 주소
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+-   메인 페이지: [https://ijieun0123.github.io/team-app-ts/](https://ijieun0123.github.io/team-app-ts/)
+-   블로그 리스트: [https://ijieun0123.github.io/team-app-ts/blog](https://ijieun0123.github.io/team-app-ts/blog)
+-   블로그 상세: [https://ijieun0123.github.io/team-app-ts/blog-detail](https://ijieun0123.github.io/team-app-ts/blog-detail)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+<br/>
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ 기술 스택
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+| 분야           | 기술                                         |
+| -------------- | -------------------------------------------- |
+| **언어**       | TypeScript                                   |
+| **프론트엔드** | React, Vite, Styled-components               |
+| **스타일링**   | SCSS, CSS Module, Flex                       |
+| **퍼블리싱**   | 웹 표준 준수, 웹 접근성 강화, 반응형 웹 구현 |
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<br/>
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🌱 참고
+
+[웹 접근성 및 웹 표준 검사 과정](https://velog.io/@cock321/%ED%8C%80%EC%95%B1-%EC%9B%B9-%EC%A0%91%EA%B7%BC%EC%84%B1-%EC%B2%B4%ED%81%AC)
+
+<br/>
+
+## 📷 **스크린샷**
+
+<img alt="Image" src="./public/img/home_page.png" />
+
+<img alt="Image" src="./public/img/blog_list_page.png" />
+
+<img alt="Image" src="./public/img/blog_detail_page.png" />

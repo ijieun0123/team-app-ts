@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-family: Cabin, "Noto Sans KR", sans-serif;
         font-size: 16px;
-        background-color: #fff;
+        background-color: #f9f9f9;
         color: ${props => props.theme.colors.black};
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
