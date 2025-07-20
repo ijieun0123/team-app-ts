@@ -1,7 +1,5 @@
 # 🧑‍💻 Team App - Instant Collaboration for Remote Teams
 
-![banner](./assets/banner.png) <!-- 없다면 이 줄은 생략해도 됩니다 -->
-
 > 👥 원격 팀을 위한 협업 플랫폼  
 > 블로그, 일정, 팀 관리 등 다양한 기능으로 **실시간 협업 환경**을 제공합니다.
 
@@ -29,7 +27,7 @@
 
 <br/>
 
-## 🌱 참고
+## 🌱 웹 표준 & 웹 접근성
 
 [웹 접근성 및 웹 표준 검사 과정](https://velog.io/@cock321/%ED%8C%80%EC%95%B1-%EC%9B%B9-%EC%A0%91%EA%B7%BC%EC%84%B1-%EC%B2%B4%ED%81%AC)
 
