@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
+        <meta charset="utf-8" />
         <title>Redirecting...</title>
+        <meta http-equiv="refresh" content="0; URL=./" />
         <script>
-            const currentPath = window.location.pathname;
-
-            // 이미 /team-app-ts 가 포함돼 있으면 중복되지 않게 처리
-            const base = "/team-app-ts";
-            const redirectTo = currentPath.startsWith(base)
-                ? base + "/"
-                : base + currentPath;
-
-            window.location.replace(redirectTo);
+            // 현재 경로 저장
+            sessionStorage.redirect = location.pathname;
         </script>
     </head>
     <body>
