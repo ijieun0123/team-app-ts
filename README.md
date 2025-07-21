@@ -35,8 +35,8 @@
 
 ## 📷 **스크린샷**
 
-<img alt="Image" src="./public/img/home_page.png" />
+<img alt="Image" src="./public/img/home_desktop.png" />
 
-<img alt="Image" src="./public/img/blog_list_page.png" />
+<img alt="Image" src="./public/img/blog_desktop.png" />
 
-<img alt="Image" src="./public/img/blog_detail_page.png" />
+<img alt="Image" src="./public/img/blog_detail_desktop.png" />
