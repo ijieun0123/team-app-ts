@@ -80,7 +80,10 @@ const BlogCard = ({
     createdAt,
 }: BlogCardProps) => {
     return (
-        <Card href="/blog-detail" aria-label={`블로그 카드 - ${title}`}>
+        <Card
+            href="/team-app-ts/blog-detail"
+            aria-label={`블로그 카드 - ${title}`}
+        >
             <CardImg src={cardImage} alt="카드 이미지" />
             <TxtBox>
                 <CardTitle className="card_title">{title}</CardTitle>
