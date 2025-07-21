@@ -77,7 +77,11 @@ const Home: FC = () => {
                             </p>
                         </div>
                         <form>
+                            <label htmlFor="email" className="visually_hidden">
+                                Email address
+                            </label>
                             <input
+                                id="email"
                                 type="email"
                                 name="email"
                                 placeholder="Email"
