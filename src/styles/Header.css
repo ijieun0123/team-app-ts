@@ -5,8 +5,12 @@ header {
     width: 100%;
     padding: 15px 0;
     z-index: 10;
-    background: var(--black-color);
-    box-shadow: var(--shadow-color);
+}
+header.hide {
+    transform: translateY(-100%);
+}
+header.show {
+    transform: translateY(0);
 }
 header .container {
     display: flex;
@@ -38,14 +42,14 @@ header .container nav .close_btn {
     display: none;
 }
 /* black */
-header.black {
+header.white_bg {
     background: #fff;
 }
-header.black .container nav a {
+header.white_bg .container nav a {
     color: var(--black-color);
     transition: 0.2s;
 }
-header.black .container nav .get_access_btn {
+header.white_bg .container nav .get_access_btn {
     background: rgba(31, 205, 205, 0.15);
     color: var(--blue-color);
     transition: 0.2s;
