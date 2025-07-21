@@ -1,4 +1,5 @@
 import "../styles/Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
     return (
@@ -18,13 +19,13 @@ const Footer: React.FC = () => {
                         <h3>Company</h3>
                         <ul className="links">
                             <li>
-                                <a href="#">Product</a>
+                                <Link to="#">Product</Link>
                             </li>
                             <li>
-                                <a href="#">Blog</a>
+                                <Link to="#">Blog</Link>
                             </li>
                             <li>
-                                <a href="#">Support</a>
+                                <Link to="#">Support</Link>
                             </li>
                         </ul>
                     </div>
@@ -32,16 +33,16 @@ const Footer: React.FC = () => {
                         <h3>Features</h3>
                         <ul className="links">
                             <li>
-                                <a href="#">Screen Sharing</a>
+                                <Link to="#">Screen Sharing</Link>
                             </li>
                             <li>
-                                <a href="#">Knowledgebase</a>
+                                <Link to="#">Knowledgebase</Link>
                             </li>
                             <li>
-                                <a href="#">Tutorials</a>
+                                <Link to="#">Tutorials</Link>
                             </li>
                             <li>
-                                <a href="#">User Management</a>
+                                <Link to="#">User Management</Link>
                             </li>
                         </ul>
                     </div>
@@ -49,12 +50,12 @@ const Footer: React.FC = () => {
                         <h3>Contact Us</h3>
                         <ul className="links">
                             <li>
-                                <a href="mailto:info@chatapp.com">
+                                <Link to="mailto:info@chatapp.com">
                                     info@chatapp.com
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="tel:1800200300">1-800-200-300</a>
+                                <Link to="tel:1800200300">1-800-200-300</Link>
                             </li>
                             <li>
                                 <p>3500 Deer Creek Rd Palo Alto, CA</p>
