@@ -104,9 +104,6 @@ const Header: React.FC = () => {
                                 : "/team-app-ts/img/white_logo.png"
                         }
                         alt="team app logo"
-                        onClick={() => {
-                            console.log("click");
-                        }}
                     />
                 </Link>
                 <button
@@ -125,13 +122,7 @@ const Header: React.FC = () => {
                         alt="menu"
                     />
                 </button>
-                <nav
-                    id="menu"
-                    onClick={() => {
-                        setIsMenuOpen(false);
-                        console.log("click nav");
-                    }}
-                >
+                <nav id="menu" onClick={() => setIsMenuOpen(false)}>
                     <Link to="/" className="logo">
                         <img
                             src="/team-app-ts/img/black_logo.svg"
