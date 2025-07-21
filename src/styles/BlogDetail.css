@@ -1,11 +1,12 @@
 .blog_detail {
+    background: #fff;
 }
 .blog_detail .blog_detail_container {
     max-width: 764px;
     margin: 0 auto;
 }
 .blog_detail .blog_detail_container .title {
-    margin: 206px 0 32px;
+    padding: 206px 0 32px;
 }
 .blog_detail .blog_detail_container .avatar {
     display: flex;
@@ -99,7 +100,7 @@
         max-width: 523px;
     }
     .blog_detail .blog_detail_container .title {
-        margin: 153px 0 25px;
+        padding: 153px 0 25px;
     }
     .blog_detail .blog_detail_container > img.post_img {
         width: 704px;
@@ -117,7 +118,7 @@
         padding: 0 16px;
     }
     .blog_detail .blog_detail_container .title {
-        margin: 104px 0 20px;
+        padding: 104px 0 20px;
         text-align: center;
     }
     .blog_detail .blog_detail_container .avatar {

@@ -47,6 +47,7 @@ header .container nav .close_btn {
 /* black */
 header.white_bg {
     background: #fff;
+    box-shadow: var(--shadow-color);
 }
 header.white_bg .container nav a {
     color: var(--black-color);
