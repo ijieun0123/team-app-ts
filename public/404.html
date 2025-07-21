@@ -3,10 +3,15 @@
     <head>
         <meta charset="UTF-8" />
         <title>Redirecting...</title>
-        <meta http-equiv="refresh" content="0; URL=/#fallback" />
         <script>
-            const pathname = window.location.pathname;
-            const redirectTo = "/team-app-ts" + pathname;
+            const currentPath = window.location.pathname;
+
+            // 이미 /team-app-ts 가 포함돼 있으면 중복되지 않게 처리
+            const base = "/team-app-ts";
+            const redirectTo = currentPath.startsWith(base)
+                ? base + "/"
+                : base + currentPath;
+
             window.location.replace(redirectTo);
         </script>
     </head>
