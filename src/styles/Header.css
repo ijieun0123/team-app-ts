@@ -31,6 +31,9 @@ header .container nav a {
     color: rgba(255, 255, 252556, 0.8);
     font-size: 16px;
 }
+header .container nav a.logo {
+    display: none;
+}
 header .container nav .get_access_btn {
     display: inline-block;
     padding: 7px 20px;
@@ -56,7 +59,7 @@ header.white_bg .container nav .get_access_btn {
 }
 
 @media (max-width: 768px) {
-    header .container .logo {
+    header .container > .logo {
         width: 58px;
     }
     header .container nav {
@@ -77,26 +80,28 @@ header.white_bg .container nav .get_access_btn {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: 80px 20px;
+        padding: 20px;
         align-items: baseline;
         width: 100%;
         height: 100vh;
-        background: #fff url(../team-app-ts/img/black_logo.svg) no-repeat 16px
-            16px;
+        background: #fff;
         transition: 0.2s;
         opacity: 0;
         visibility: hidden;
+    }
+    header.menu_open .container > .logo {
+        display: none;
     }
     header.menu_open .container nav {
         opacity: 1;
         left: 0;
         visibility: visible;
     }
-    /* header.menu_close .container nav {
-        opacity: 0;
-        left: -100%;
-        visibility: hidden;
-    } */
+    header.menu_open .container nav .logo {
+        display: inline-block;
+        width: 60px;
+        margin-bottom: 15px;
+    }
     header .container nav a {
         color: var(--gray-color);
     }

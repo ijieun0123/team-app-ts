@@ -1,10 +1,9 @@
 import "../styles/Header.css";
 import { Link, useLocation } from "react-router-dom";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const Header: React.FC = () => {
     const location = useLocation();
-    const headerRef = useRef<HTMLElement | null>(null);
     const [isWhiteBg, setIsWhiteBg] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [showHeader, setShowHeader] = useState(true);
@@ -44,17 +43,11 @@ const Header: React.FC = () => {
 
     // 햄버거 메뉴 클릭 이벤트
     const handleHamburgerClick = () => {
-        if (headerRef.current) {
-            headerRef.current.classList.add("menu_open");
-        }
         setIsMenuOpen(true);
     };
 
     // 클로즈 버튼 클릭 이벤트
     const handleCloseBtnClick = () => {
-        if (headerRef.current) {
-            headerRef.current.classList.remove("menu_open");
-        }
         setIsMenuOpen(false);
     };
 
@@ -80,12 +73,26 @@ const Header: React.FC = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [location.pathname]);
 
+    // menu open 시 스크롤 되지않도록 고정
+    useEffect(() => {
+        if (isMenuOpen) {
+            const scrollY = window.scrollY;
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollY}px`;
+            document.body.dataset.scrollY = String(scrollY);
+        } else {
+            const scrollY = document.body.dataset.scrollY || "0";
+            document.body.style.position = "";
+            document.body.style.top = "";
+            window.scrollTo(0, parseInt(scrollY));
+        }
+    }, [isMenuOpen]);
+
     return (
         <header
-            ref={headerRef}
             className={`${showHeader ? "show" : "hide"} ${
                 isWhiteBg ? "white_bg" : ""
-            }`}
+            } ${isMenuOpen ? "menu_open" : ""}`}
         >
             <div className="container">
                 <Link to="/" className="logo">
@@ -97,6 +104,9 @@ const Header: React.FC = () => {
                                 : "/team-app-ts/img/white_logo.png"
                         }
                         alt="team app logo"
+                        onClick={() => {
+                            console.log("click");
+                        }}
                     />
                 </Link>
                 <button
@@ -115,7 +125,19 @@ const Header: React.FC = () => {
                         alt="menu"
                     />
                 </button>
-                <nav id="menu">
+                <nav
+                    id="menu"
+                    onClick={() => {
+                        setIsMenuOpen(false);
+                        console.log("click nav");
+                    }}
+                >
+                    <Link to="/" className="logo">
+                        <img
+                            src="/team-app-ts/img/black_logo.svg"
+                            alt="team logo"
+                        />
+                    </Link>
                     <Link to="#">Product</Link>
                     <Link to="/blog">Blog</Link>
                     <Link to="#">Contact</Link>
