@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import "../styles/Home.css";
+import "../styles/Home.scss";
 import ReviewCard from "../components/ReviewCard";
 import { reviewCardData } from "../data/reviewCardData";
 import { Swiper, SwiperSlide } from "swiper/react";

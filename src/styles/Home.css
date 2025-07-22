@@ -223,15 +223,12 @@ main {
     .management .txt_box .paragraph,
     .scheduling .txt_box .paragraph {
         margin: 15px 0 30px;
+        font-size: 16px;
     }
     .management .title,
     .scheduling .title {
         font-size: 40px;
         line-height: 1.325;
-    }
-    .management .paragraph,
-    .scheduling .paragraph {
-        font-size: 16px;
     }
 }
 
@@ -412,7 +409,7 @@ main {
 }
 .review .container .title {
 }
-.review .container .title .card_box {
+.review .container .card_box {
     margin-right: -140px;
 }
 
