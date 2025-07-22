@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { blogCardData } from "../data/blogCardData";
 import BlogCard from "../components/BlogCard";
-import "../styles/Blog.css";
+import "../styles/Blog.scss";
 
 const Blog: FC = () => {
     return (
