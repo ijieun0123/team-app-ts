@@ -1,0 +1,193 @@
+.blog_detail {
+    background: #fff;
+
+    .blog_detail_container {
+        max-width: 764px;
+        margin: 0 auto;
+
+        .title {
+            padding: 206px 0 32px;
+        }
+        .avatar {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            img {
+                width: 40px;
+                height: 40px;
+                margin-right: -15px;
+                border-radius: 50%;
+            }
+            .line {
+                color: rgba(81, 92, 111, 0.1);
+            }
+        }
+        img.post_img {
+            width: 962px;
+            max-width: none;
+            margin-top: 60px;
+            margin-bottom: 60px;
+            margin-left: calc((764px - 962px) / 2);
+        }
+        .written_by_box {
+            margin-top: 100px;
+            display: flex;
+            gap: 15px;
+
+            img {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+            }
+            .txt_box {
+                display: flex;
+                flex-direction: column;
+
+                .written_by {
+                    color: rgba(81, 92, 111, 0.3);
+                    font-weight: 800;
+                    font-size: 14px;
+                    line-height: 150.6%;
+                    letter-spacing: 2.5px;
+                }
+
+                .name {
+                    margin: 5px 0 10px;
+                    font-size: 20px;
+                    color: var(--black-color);
+                    line-height: 150.6%;
+                }
+
+                .caption {
+                    display: inline-block;
+                    width: 296px;
+                }
+            }
+        }
+        > .line {
+            display: inline-block;
+            width: 100%;
+            height: 1px;
+            margin: 50px 0;
+            background: rgba(81, 92, 111, 0.1);
+        }
+        .conversation {
+            .conversation_title {
+                margin-bottom: 25px;
+                font-size: 24px;
+                color: var(--black-color);
+            }
+        }
+        .img_textarea {
+            display: flex;
+            gap: 15px;
+
+            img {
+                width: 56px;
+                height: 56px;
+            }
+            textarea {
+                width: 100%;
+                height: 112px;
+                margin-bottom: 150px;
+                padding: 16px;
+                border: 1px solid rgba(81, 92, 111, 0.3);
+                border-radius: 3px;
+
+                &::placeholder {
+                    font-size: 18px;
+                    color: rgba(81, 92, 111, 0.3);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .blog_detail {
+        .blog_detail_container {
+            max-width: 523px;
+
+            .title {
+                padding: 153px 0 25px;
+            }
+            img.post_img {
+                width: 704px;
+                margin-top: 40px;
+                margin-bottom: 40px;
+                margin-left: calc((523px - 704px) / 2);
+            }
+            .written_by_box {
+                margin-top: 70px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .blog_detail {
+        .blog_detail_container {
+            padding: 0 16px;
+
+            .title {
+                padding: 104px 0 20px;
+                text-align: center;
+            }
+            .avatar {
+                justify-content: center;
+                gap: 10px;
+
+                img {
+                    width: 35px;
+                    height: 35px;
+                    margin-right: 10px;
+                }
+            }
+            img.post_img {
+                width: 100%;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                margin-left: 0;
+            }
+            .written_by_box {
+                margin-top: 40px;
+                img {
+                    width: 35px;
+                    height: 35px;
+                }
+                .txt_box {
+                    .written_by {
+                        font-size: 12px;
+                    }
+                }
+                .name {
+                    margin: 5px 0;
+                    font-size: 18px;
+                }
+                .caption {
+                    width: 100%;
+                }
+            }
+            > .line {
+                margin: 30px 0;
+            }
+            .conversation {
+                .conversation_title {
+                    margin-bottom: 15px;
+                    font-size: 18px;
+                }
+            }
+            .img_textarea {
+                img {
+                    width: 35px;
+                    height: 35px;
+                }
+                textarea {
+                    height: 80px;
+                    margin-bottom: 80px;
+                }
+            }
+        }
+    }
+}

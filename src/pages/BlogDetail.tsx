@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import "../styles/BlogDetail.css";
+import "../styles/BlogDetail.scss";
 
 const BlogDetail: FC = () => {
     return (
