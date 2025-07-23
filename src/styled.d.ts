@@ -53,6 +53,11 @@ declare module "styled-components" {
                 fontWeight: number;
                 color: string;
             };
+            inputTitle: {
+                fontSizeDesktop: string;
+                fontSizeMobile: string;
+                color: string;
+            };
         };
         container: {
             maxWidth: string;

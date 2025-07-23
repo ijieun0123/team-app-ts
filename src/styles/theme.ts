@@ -51,6 +51,11 @@ export const theme: DefaultTheme = {
             fontWeight: 500,
             color: "#25313c", // black-color
         },
+        inputTitle: {
+            fontSizeDesktop: "24px",
+            fontSizeMobile: "18px",
+            color: "25313c",
+        },
     },
     container: {
         maxWidth: "1440px",

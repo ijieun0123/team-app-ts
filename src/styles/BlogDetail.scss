@@ -73,10 +73,8 @@
             background: rgba(81, 92, 111, 0.1);
         }
         .conversation {
-            .conversation_title {
+            .input_title {
                 margin-bottom: 25px;
-                font-size: 24px;
-                color: var(--black-color);
             }
         }
         .img_textarea {
@@ -173,9 +171,8 @@
                 margin: 30px 0;
             }
             .conversation {
-                .conversation_title {
+                .input_title {
                     margin-bottom: 15px;
-                    font-size: 18px;
                 }
             }
             .img_textarea {

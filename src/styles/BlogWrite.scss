@@ -1,0 +1,74 @@
+.write {
+    padding-bottom: 150px;
+    background: #fff;
+
+    .container {
+        .title_box {
+            padding: 218px 0 60px;
+
+            .title {
+                margin-bottom: 10px;
+            }
+            .paragraph {
+            }
+        }
+        .input_textarea_box {
+            .txt_box {
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                margin-bottom: 40px;
+
+                label.input_title {
+                }
+                input {
+                }
+                textarea {
+                    height: 400px;
+                    overflow-y: scroll;
+                }
+            }
+        }
+        .save_btn {
+            display: block;
+            margin: 60px auto 0;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .write {
+        padding-bottom: 100px;
+
+        .title_box {
+            padding: 153px 0 40px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .write {
+        padding-bottom: 150px;
+        background: #fff;
+
+        .container {
+            .title_box {
+                padding: 103px 0 30px;
+
+                .title {
+                    margin-bottom: 15px;
+                }
+                .paragraph {
+                }
+            }
+            .input_textarea_box {
+                .txt_box {
+                    margin-bottom: 20px;
+                }
+            }
+            .save_btn {
+                margin: 40px auto 0;
+            }
+        }
+    }
+}

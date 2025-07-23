@@ -121,6 +121,10 @@ const GlobalStyle = createGlobalStyle`
         font-weight: ${props => props.theme.fonts.cardTitle.fontWeight};
         color: ${props => props.theme.fonts.cardTitle.color};
     }
+    .input_title {
+        font-size: ${props => props.theme.fonts.inputTitle.fontSizeDesktop};
+        color: ${props => props.theme.fonts.inputTitle.color};
+    }
 
     @media (max-width: 1024px) {
         .title {
@@ -153,6 +157,10 @@ const GlobalStyle = createGlobalStyle`
         .paragraph {
             letter-spacing: ${props =>
                 props.theme.fonts.paragraph.letterSpacingMobile};
+        }
+        .input_title {
+            font-size: ${props =>
+                props.theme.fonts.inputTitle.fontSizeMobile};   
         }
     }
     

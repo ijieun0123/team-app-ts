@@ -107,7 +107,7 @@ const BlogDetail: FC = () => {
                 </div>
                 <span className="line"></span>
                 <form className="conversation">
-                    <p className="conversation_title">Join the conversation</p>
+                    <p className="input_title">Join the conversation</p>
                     <div className="img_textarea">
                         <img
                             src="/team-app-ts/img/blog_avatar_2.svg"
