@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import "../styles/BlogDetail.scss";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 const BlogDetail: FC = () => {
     return (
@@ -93,7 +94,13 @@ const BlogDetail: FC = () => {
                     also deeply human.
                 </p>
                 <div className="btn_box">
-                    <Button className="caption update_btn">Update</Button>
+                    <Button
+                        className="caption update_btn"
+                        as={Link}
+                        to="/blog-update"
+                    >
+                        Update
+                    </Button>
                     <Button $black className="caption delete_btn">
                         Delete
                     </Button>

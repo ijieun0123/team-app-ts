@@ -1,6 +1,9 @@
 import styled, { css } from "styled-components";
 
 const BtnStyle = css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 168px;
     height: 46px;
     border-radius: 4px;
