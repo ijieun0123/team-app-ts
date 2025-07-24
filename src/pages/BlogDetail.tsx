@@ -8,7 +8,7 @@ const BlogDetail: FC = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const handleDelete = async (id: number) => {
+    const handleDelete = async () => {
         try {
             const response = await fetch(
                 `http://localhost:8080/api/blogs/${id}`,
@@ -123,14 +123,14 @@ const BlogDetail: FC = () => {
                     <Button
                         className="caption update_btn"
                         as={Link}
-                        to="/blog-update"
+                        to={`/blog-update/${id}`}
                     >
                         Update
                     </Button>
                     <Button
                         $black
                         className="caption delete_btn"
-                        onClick={() => handleDelete(id)}
+                        onClick={handleDelete}
                     >
                         Delete
                     </Button>

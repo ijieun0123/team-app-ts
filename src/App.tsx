@@ -22,6 +22,7 @@ function App() {
                 <Route path="/blog" element={<Blog />}></Route>
                 <Route path="/blog-detail/:id" element={<BlogDetail />}></Route>
                 <Route path="/blog-write" element={<BlogWrite />}></Route>
+                <Route path="/blog-update/:id" element={<BlogWrite />}></Route>
             </Routes>
             <Footer />
         </ThemeProvider>
