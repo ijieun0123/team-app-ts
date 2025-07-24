@@ -85,7 +85,7 @@ const BlogCard = ({
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/team-app-ts/blog-detail/${id}`); // 여기서 id를 경로에 포함시킴
+        navigate(`/blog-detail/${id}`); // 여기서 id를 경로에 포함시킴
     };
 
     return (

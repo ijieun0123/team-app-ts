@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/theme";
 import GlobalStyle from "./styles/globalStyles";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
@@ -13,19 +13,17 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
-            <BrowserRouter basename="/team-app-ts/">
-                <a href="#main-content" className="skip_link">
-                    본문으로 바로가기
-                </a>
-                <Header />
-                <Routes>
-                    <Route path="/" element={<Home />}></Route>
-                    <Route path="/blog" element={<Blog />}></Route>
-                    <Route path="/blog-detail" element={<BlogDetail />}></Route>
-                    <Route path="/blog-write" element={<BlogWrite />}></Route>
-                </Routes>
-                <Footer />
-            </BrowserRouter>
+            <a href="#main-content" className="skip_link">
+                본문으로 바로가기
+            </a>
+            <Header />
+            <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/blog" element={<Blog />}></Route>
+                <Route path="/blog-detail/:id" element={<BlogDetail />}></Route>
+                <Route path="/blog-write" element={<BlogWrite />}></Route>
+            </Routes>
+            <Footer />
         </ThemeProvider>
     );
 }

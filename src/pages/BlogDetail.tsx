@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 
 const BlogDetail: FC = () => {
     const { blogId } = useParams();
-    console.log(blogId);
 
     const handleDelete = async () => {
         try {
