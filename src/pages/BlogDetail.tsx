@@ -12,6 +12,7 @@ type Blog = {
     writerImage: string;
     writerName: string;
     createdAt: string;
+    career: string;
 };
 
 const BlogDetail: FC = () => {
@@ -121,7 +122,7 @@ const BlogDetail: FC = () => {
                             <div className="txt_box">
                                 <span className="written_by">WRITTEN BY</span>
                                 <span className="name">{blog.writerName}</span>
-                                <span className="caption">CEO at Team Inc</span>
+                                <span className="caption">{blog.career}</span>
                             </div>
                         </div>
 

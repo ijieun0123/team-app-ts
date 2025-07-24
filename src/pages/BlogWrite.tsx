@@ -13,6 +13,7 @@ const BlogWrite: FC = () => {
     const [image, setImage] = useState("");
     const [writerImage, setWriterImage] = useState("");
     const [writerName, setWriterName] = useState("");
+    const [career, setCareer] = useState("");
 
     // 1. id가 있을 때 기존 데이터 불러오기
     useEffect(() => {
@@ -28,6 +29,7 @@ const BlogWrite: FC = () => {
                     setImage(data.image);
                     setWriterImage(data.writerImage);
                     setWriterName(data.writerName);
+                    setCareer(data.career);
                 })
                 .catch(err => {
                     console.error(err);
@@ -44,6 +46,7 @@ const BlogWrite: FC = () => {
             image,
             writerImage,
             writerName,
+            career,
         };
 
         try {
@@ -161,6 +164,20 @@ const BlogWrite: FC = () => {
                             className="paragraph"
                             value={writerName}
                             onChange={e => setWriterName(e.target.value)}
+                        />
+                    </div>
+                    <div className="txt_box">
+                        <label htmlFor="career" className="input_title">
+                            Writer career
+                        </label>
+                        <InputTextarea
+                            id="career"
+                            as="input"
+                            type="text"
+                            placeholder="Writer career"
+                            className="paragraph"
+                            value={career}
+                            onChange={e => setCareer(e.target.value)}
                         />
                     </div>
                 </form>

@@ -12,6 +12,7 @@ interface BlogCardData {
     description: string;
     writerImage: string;
     writerName: string;
+    career: string;
     createdAt: string;
 }
 

@@ -7,6 +7,7 @@ export const blogCardData = [
             "Vestibulum eu quam nec neque pellentesque efficitur id eget nisl. Proin porta est convallis lacus bl. Aliquam porta nisl dolor, molestie pellentesque elit ...",
         writerImage: "/team-app-ts/img/blog_writer_1.svg",
         writerName: "Kristin Watson",
+        career: "CEO at Team Inc",
         createdAt: "25 January 2025",
     },
     {
@@ -17,6 +18,7 @@ export const blogCardData = [
             "Discover the exact techniques I used to scale a Spring Boot application from handling 50K to 1M requests per second. I’ll share the surprising bottlenecks ...",
         writerImage: "/team-app-ts/img/blog_writer_2.svg",
         writerName: "Ronald Richards",
+        career: "CEO at Team Inc",
         createdAt: "25 January 2025",
     },
     {
@@ -27,6 +29,7 @@ export const blogCardData = [
             "You may not realize it yet, but Spring Boot 3.5 isn’t just an update — it’s a quiet signal. A signal that server-centric architectures are losing ground, and the ...",
         writerImage: "/team-app-ts/img/blog_writer_3.svg",
         writerName: "Eleanor Pena",
+        career: "CEO at Team Inc",
         createdAt: "25 January 2025",
     },
     {
@@ -37,6 +40,7 @@ export const blogCardData = [
             "“You can’t move forward if you keep dragging the past.” This is exactly what I tell my team when reviewing ...",
         writerImage: "/team-app-ts/img/blog_writer_4.svg",
         writerName: "Dianne Russell",
+        career: "CEO at Team Inc",
         createdAt: "25 January 2025",
     },
     {
@@ -47,6 +51,7 @@ export const blogCardData = [
             "I still remember that strange silence in the meeting room. Our CTO had just announced we were moving away from Kubernetes after two years of ...",
         writerImage: "/team-app-ts/img/blog_writer_5.svg",
         writerName: "Guy Hawkins",
+        career: "CEO at Team Inc",
         createdAt: "25 January 2025",
     },
     {
@@ -57,6 +62,7 @@ export const blogCardData = [
             "Java Streams, introduced in Java 8, are a powerful tool for processing collections in a functional, declarative way. ",
         writerImage: "/team-app-ts/img/blog_writer_6.svg",
         writerName: "Esther Howard",
+        career: "CEO at Team Inc",
         createdAt: "25 January 2025",
     },
     {
@@ -67,6 +73,7 @@ export const blogCardData = [
             "A simple CTE trick that saved us from a major scaling disaster Our system was buckling under load. Pages were slow, dashboards were timing out, and ...",
         writerImage: "/team-app-ts/img/blog_writer_7.svg",
         writerName: "Arlene McCoy",
+        career: "CEO at Team Inc",
         createdAt: "25 January 2025",
     },
     {
@@ -77,6 +84,7 @@ export const blogCardData = [
             "At some point in every Java developer’s life, there comes a moment of truth. Mine came when I was handed a monolithic backend service that had ...",
         writerImage: "/team-app-ts/img/blog_writer_8.svg",
         writerName: "Ronald Richards",
+        career: "CEO at Team Inc",
         createdAt: "25 January 2025",
     },
     {
@@ -87,6 +95,7 @@ export const blogCardData = [
             "Yes, starting with Spring Boot 3 and Spring Framework 6, Spring has been encouraging constructor-based dependency injection over field injection ...",
         writerImage: "/team-app-ts/img/blog_writer_9.svg",
         writerName: "Leslie Alexander",
+        career: "CEO at Team Inc",
         createdAt: "25 January 2025",
     },
 ];
