@@ -106,7 +106,13 @@ const BlogCard = ({
                     <WriterImg src={writerImage} alt="프로필" />
                     <span className="caption">{writerName}</span>
                     <Line>|</Line>
-                    <span className="caption">{createdAt}</span>
+                    <span className="caption">
+                        {new Date(createdAt).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                        })}
+                    </span>
                 </Writer>
             </TxtBox>
         </Card>
