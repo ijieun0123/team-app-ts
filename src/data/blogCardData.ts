@@ -1,5 +1,6 @@
 export const blogCardData = [
     {
+        id: 1,
         cardImage: "/team-app-ts/img/blog_1.svg",
         title: "10 Secret tips for managing a remote team",
         description:
@@ -9,6 +10,7 @@ export const blogCardData = [
         createdAt: "25 January 2025",
     },
     {
+        id: 2,
         cardImage: "/team-app-ts/img/blog_2.svg",
         title: "How I Optimized a Spring Boot Application to Handle 1M ...",
         description:
@@ -18,6 +20,7 @@ export const blogCardData = [
         createdAt: "25 January 2025",
     },
     {
+        id: 3,
         cardImage: "/team-app-ts/img/blog_3.svg",
         title: "Spring Boot 3.5 Might Be the Last Version You Use ...",
         description:
@@ -27,6 +30,7 @@ export const blogCardData = [
         createdAt: "25 January 2025",
     },
     {
+        id: 4,
         cardImage: "/team-app-ts/img/blog_4.svg",
         title: "10 Java Features You Should Stop Using Today⛔",
         description:
@@ -36,6 +40,7 @@ export const blogCardData = [
         createdAt: "25 January 2025",
     },
     {
+        id: 5,
         cardImage: "/team-app-ts/img/blog_5.svg",
         title: "Kubernetes Is Dead: Why Tech Giants Are Secretly Moving ...",
         description:
@@ -45,6 +50,7 @@ export const blogCardData = [
         createdAt: "25 January 2025",
     },
     {
+        id: 6,
         cardImage: "/team-app-ts/img/blog_6.svg",
         title: "10 Java Stream Tricks Only Senior Developers Know ...",
         description:
@@ -54,6 +60,7 @@ export const blogCardData = [
         createdAt: "25 January 2025",
     },
     {
+        id: 7,
         cardImage: "/team-app-ts/img/blog_7.svg",
         title: "We Cut 80% of Our Query Time by Using This ...",
         description:
@@ -63,6 +70,7 @@ export const blogCardData = [
         createdAt: "25 January 2025",
     },
     {
+        id: 8,
         cardImage: "/team-app-ts/img/blog_8.svg",
         title: "I Refactored 100,000 Lines of Java Code — These 12 Rules ...",
         description:
@@ -72,6 +80,7 @@ export const blogCardData = [
         createdAt: "25 January 2025",
     },
     {
+        id: 9,
         cardImage: "/team-app-ts/img/blog_9.svg",
         title: "Spring Says Goodbye to @Autowired: Here’s What ...",
         description:

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 type BlogCardProps = {
     cardImage: string;
@@ -7,6 +8,7 @@ type BlogCardProps = {
     writerImage: string;
     writerName: string;
     createdAt: string;
+    id: number;
 };
 
 const Card = styled.a`
@@ -78,12 +80,16 @@ const BlogCard = ({
     writerImage,
     writerName,
     createdAt,
+    id,
 }: BlogCardProps) => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/team-app-ts/blog-detail/${id}`); // 여기서 id를 경로에 포함시킴
+    };
+
     return (
-        <Card
-            href="/team-app-ts/blog-detail"
-            aria-label={`블로그 카드 - ${title}`}
-        >
+        <Card onClick={handleClick} aria-label={`블로그 카드 - ${title}`}>
             <CardImg src={cardImage} alt="카드 이미지" />
             <TxtBox>
                 <CardTitle className="card_title">{title}</CardTitle>

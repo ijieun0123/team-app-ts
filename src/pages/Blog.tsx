@@ -26,6 +26,7 @@ const Blog: FC = () => {
                             writerImage={item.writerImage}
                             writerName={item.writerName}
                             createdAt={item.createdAt}
+                            id={item.id}
                         />
                     ))}
                 </div>
