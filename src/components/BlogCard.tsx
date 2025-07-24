@@ -29,13 +29,16 @@ const Card = styled.a`
 
 const CardImg = styled.img`
     width: 100%;
-    height: 200px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    object-fit: cover;
 `;
 
 const TxtBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-height: 240px;
     padding: 20px;
     background: white;
     border-bottom-left-radius: 8px;
@@ -63,9 +66,14 @@ const Writer = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-top: auto;
 `;
 
 const WriterImg = styled.img`
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-right: 5px;
 `;
 
