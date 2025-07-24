@@ -23,9 +23,7 @@ const BlogDetail: FC = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const response = await fetch(
-                    `http://localhost:8080/api/blogs/${id}`
-                );
+                const response = await fetch(`/api/blogs/${id}`);
                 if (!response.ok) {
                     throw new Error("블로그 데이터를 불러오는데 실패했습니다");
                 }
@@ -45,12 +43,9 @@ const BlogDetail: FC = () => {
 
     const handleDelete = async () => {
         try {
-            const response = await fetch(
-                `http://localhost:8080/api/blogs/${id}`,
-                {
-                    method: "DELETE",
-                }
-            );
+            const response = await fetch(`/api/blogs/${id}`, {
+                method: "DELETE",
+            });
 
             if (!response.ok) {
                 throw new Error("삭제 실패");

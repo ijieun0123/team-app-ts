@@ -18,7 +18,7 @@ const BlogWrite: FC = () => {
     // 1. id가 있을 때 기존 데이터 불러오기
     useEffect(() => {
         if (id) {
-            fetch(`http://localhost:8080/api/blogs/${id}`)
+            fetch(`/api/blogs/${id}`)
                 .then(res => {
                     if (!res.ok) throw new Error("Failed to fetch blog");
                     return res.json();
@@ -50,16 +50,13 @@ const BlogWrite: FC = () => {
         };
 
         try {
-            const response = await fetch(
-                `http://localhost:8080/api/blogs${id ? `/${id}` : ""}`,
-                {
-                    method: id ? "PATCH" : "POST", // 수정: PUT, 신규 생성: POST
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                }
-            );
+            const response = await fetch(`/api/blogs${id ? `/${id}` : ""}`, {
+                method: id ? "PATCH" : "POST", // 수정: PUT, 신규 생성: POST
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
 
             if (!response.ok) {
                 throw new Error(

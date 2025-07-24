@@ -20,7 +20,7 @@ const BlogList: FC = () => {
     const [blogCardData, setBlogCardData] = useState<BlogCardData[]>([]);
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/blogs")
+        fetch("/api/blogs")
             .then(res => {
                 if (!res.ok)
                     throw new Error("블로그 데이터를 불러오는 데 실패했어요.");
