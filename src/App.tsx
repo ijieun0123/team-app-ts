@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
-import Blog from "./pages/Blog";
+import BlogList from "./pages/BlogList";
 import BlogDetail from "./pages/BlogDetail";
 import BlogWrite from "./pages/BlogWrite";
 
@@ -19,7 +19,7 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/blog" element={<Blog />}></Route>
+                <Route path="/blog" element={<BlogList />}></Route>
                 <Route path="/blog-detail/:id" element={<BlogDetail />}></Route>
                 <Route path="/blog-write" element={<BlogWrite />}></Route>
                 <Route path="/blog-update/:id" element={<BlogWrite />}></Route>
