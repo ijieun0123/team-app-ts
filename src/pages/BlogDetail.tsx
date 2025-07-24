@@ -3,10 +3,44 @@ import "../styles/BlogDetail.scss";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+type Blog = {
+    title: string;
+    description: string;
+    image: string;
+    writerImage: string;
+    writerName: string;
+    createdAt: string;
+};
 
 const BlogDetail: FC = () => {
+    const [blog, setBlog] = useState<Blog | null>(null);
     const { id } = useParams();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchBlog = async () => {
+            try {
+                const response = await fetch(
+                    `http://localhost:8080/api/blogs/${id}`
+                );
+                if (!response.ok) {
+                    throw new Error("블로그 데이터를 불러오는데 실패했습니다");
+                }
+
+                const data = await response.json();
+                setBlog(data);
+            } catch (error) {
+                console.error("블로그 로딩 오류:", error);
+                alert("블로그 정보를 불러오지 못했습니다.");
+            }
+        };
+
+        if (id) {
+            fetchBlog();
+        }
+    }, [id]);
 
     const handleDelete = async () => {
         try {
@@ -33,140 +67,90 @@ const BlogDetail: FC = () => {
     return (
         <main id="main-content" className="blog_detail" tabIndex={-1}>
             <div className="blog_detail_container">
-                <h1 className="title">
-                    10 Secret tips for managing a remote team
-                </h1>
-                <div className="writer">
-                    <img
-                        src="/team-app-ts/img/blog_writer_1.svg"
-                        alt="writer"
-                    />
-                    <span className="caption">Kristin Watson</span>
-                    <span className="line">|</span>
-                    <span className="caption">25 January 2025</span>
-                </div>
-                <img
-                    src="/team-app-ts/img/blog_1.svg"
-                    alt="blog image"
-                    className="post_img"
-                />
-                <p className="paragraph">
-                    Remote work is here to stay. Whether you're leading a fully
-                    distributed startup or managing a hybrid team, navigating
-                    the challenges of remote leadership takes more than just
-                    scheduled Zoom calls and fancy productivity tools.
-                    <br />
-                    <br />
-                    At its core, managing a remote team is about creating trust,
-                    clarity, and human connection — even when you're miles
-                    apart. <br />
-                    <br />
-                    Here are some not-so-obvious but incredibly effective tips
-                    that can help you become a better remote leader and build a
-                    thriving team culture. Start with trust. Micromanaging kills
-                    creativity and motivation.
-                    <br />
-                    <br />
-                    When you show trust from the beginning, your team feels
-                    empowered. Set clear expectations, then give them space to
-                    deliver. Communicate clearly — and often.
-                    <br />
-                    <br />
-                    Lack of communication creates doubt. But constant messages
-                    can overwhelm. Find a balance using async tools like Slack,
-                    Notion, or Loom. <br />
-                    <br />
-                    Clear communication doesn’t have to mean constant noise.
-                    Make meetings personal. The first few minutes of a meeting
-                    are golden. Ask about someone's weekend, share a funny meme,
-                    or talk about life. That personal connection helps build
-                    empathy and rapport.
-                    <br />
-                    <br />
-                    Protect deep work. Encourage time blocks where team members
-                    can focus without interruptions. This prevents burnout and
-                    gives people the mental space to produce their best work.
-                    Create casual spaces. Remote teams need a “watercooler” too.
-                    A #random Slack channel or casual Friday coffee chats can
-                    give people a space to connect beyond just work. Document
-                    everything. <br />
-                    <br />
-                    If it’s not written down, it didn’t happen. Keep decisions,
-                    project updates, and shared knowledge in one place that
-                    everyone can access — whether they’re in Lisbon or Seoul.
-                    Respect time zones. Don’t assume everyone’s online when you
-                    are. Use tools to check availability across regions and
-                    embrace asynchronous workflows whenever possible. <br />
-                    <br />
-                    Celebrate wins, big and small. When someone ships a new
-                    feature or writes an amazing report, shout it out.
-                    Recognition is even more powerful when you're remote —
-                    because it’s often the only feedback people get.
-                    <br />
-                    <br />
-                    Care about well-being. Ask how your team is doing — really
-                    doing. Make space for honesty, encourage time off, and watch
-                    for signs of burnout. Mental health isn’t a nice-to-have.
-                    It’s essential. Lead the way. Model the behaviors you want
-                    your team to adopt. <br />
-                    <br />
-                    Set boundaries, take breaks, turn off notifications. If your
-                    team sees you resting and thriving, they'll feel permission
-                    to do the same. Remote teams don’t need to feel distant.
-                    <br />
-                    <br />
-                    With a little intentionality, empathy, and structure, you
-                    can create a remote culture that’s not only productive, but
-                    also deeply human.
-                </p>
-                <div className="btn_box">
-                    <Button
-                        className="caption update_btn"
-                        as={Link}
-                        to={`/blog-update/${id}`}
-                    >
-                        Update
-                    </Button>
-                    <Button
-                        $black
-                        className="caption delete_btn"
-                        onClick={handleDelete}
-                    >
-                        Delete
-                    </Button>
-                </div>
-                <div className="written_by_box">
-                    <img
-                        src="/team-app-ts/img/blog_writer_1.svg"
-                        alt="writer"
-                    />
-                    <div className="txt_box">
-                        <span className="written_by">WRITTEN BY</span>
-                        <span className="name">Kristin Watson</span>
-                        <span className="caption">
-                            CEO at Team Inc. Author of the upcoming book on Team
-                            Management and Leadership
-                        </span>
-                    </div>
-                </div>
-                <span className="line"></span>
-                <form className="conversation">
-                    <p className="input_title">Join the conversation</p>
-                    <div className="img_textarea">
+                {blog ? (
+                    <>
+                        <h1 className="title">{blog.title}</h1>
+                        <div className="writer">
+                            <img src={blog.writerImage} alt="writer" />
+                            <span className="caption">{blog.writerName}</span>
+                            <span className="line">|</span>
+                            <span className="caption">
+                                {new Date(blog.createdAt).toLocaleDateString(
+                                    "en-US",
+                                    {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                    }
+                                )}
+                            </span>
+                        </div>
                         <img
-                            src="/team-app-ts/img/blog_writer_2.svg"
-                            alt="writer"
+                            src={blog.image}
+                            alt="blog image"
+                            className="post_img"
                         />
-                        <label htmlFor="comment" className="visually_hidden">
-                            Write a comment
-                        </label>
-                        <textarea
-                            name="comment"
-                            id="comment"
-                            placeholder="Comments"
-                        ></textarea>
-                    </div>
-                </form>
+                        <p className="paragraph">
+                            {blog.description.split("\n").map((line, idx) => (
+                                <span key={idx}>
+                                    {line}
+                                    <br />
+                                </span>
+                            ))}
+                        </p>
+
+                        <div className="btn_box">
+                            <Button
+                                className="update_btn caption"
+                                as={Link}
+                                to={`/blog-update/${id}`}
+                            >
+                                Update
+                            </Button>
+                            <Button
+                                $black
+                                className="delete_btn caption"
+                                onClick={handleDelete}
+                            >
+                                Delete
+                            </Button>
+                        </div>
+
+                        <div className="written_by_box">
+                            <img src={blog.writerImage} alt="writer" />
+                            <div className="txt_box">
+                                <span className="written_by">WRITTEN BY</span>
+                                <span className="name">{blog.writerName}</span>
+                                <span className="caption">CEO at Team Inc</span>
+                            </div>
+                        </div>
+
+                        <span className="line"></span>
+
+                        <form className="conversation">
+                            <p className="input_title">Join the conversation</p>
+                            <div className="img_textarea">
+                                <img
+                                    src="/team-app-ts/img/blog_writer_2.svg"
+                                    alt="writer"
+                                />
+                                <label
+                                    htmlFor="comment"
+                                    className="visually_hidden"
+                                >
+                                    Write a comment
+                                </label>
+                                <textarea
+                                    name="comment"
+                                    id="comment"
+                                    placeholder="Comments"
+                                ></textarea>
+                            </div>
+                        </form>
+                    </>
+                ) : (
+                    <p>Loading...</p>
+                )}
             </div>
         </main>
     );
