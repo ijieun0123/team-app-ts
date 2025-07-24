@@ -30,8 +30,13 @@
             margin-bottom: 60px;
             margin-left: calc((764px - 962px) / 2);
         }
+        .btn_box {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 60px auto 150px;
+        }
         .written_by_box {
-            margin-top: 100px;
             display: flex;
             gap: 15px;
 
@@ -148,8 +153,11 @@
                 margin-bottom: 30px;
                 margin-left: 0;
             }
+            .btn_box {
+                gap: 10px;
+                margin: 40px auto 100px;
+            }
             .written_by_box {
-                margin-top: 40px;
                 img {
                     width: 35px;
                     height: 35px;

@@ -3,13 +3,14 @@ import styled, { css } from "styled-components";
 const BtnStyle = css`
     width: 168px;
     height: 46px;
-    background: rgba(81, 92, 111, 0.1);
-    color: var(--gray-color);
     border-radius: 4px;
 `;
 
-const Button = styled.button`
+const Button = styled.button<{ $black?: boolean }>`
     ${BtnStyle}
+    background: ${({ $black }) =>
+        $black ? "var(--black-color)" : "rgba(81, 92, 111, 0.1)"};
+    color: ${({ $black }) => ($black ? "#fff" : "var(--gray-color)")};
 `;
 
 export default Button;

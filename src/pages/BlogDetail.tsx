@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import "../styles/BlogDetail.scss";
+import Button from "../components/Button";
 
 const BlogDetail: FC = () => {
     return (
@@ -91,6 +92,12 @@ const BlogDetail: FC = () => {
                     can create a remote culture that’s not only productive, but
                     also deeply human.
                 </p>
+                <div className="btn_box">
+                    <Button className="caption update_btn">Update</Button>
+                    <Button $black className="caption delete_btn">
+                        Delete
+                    </Button>
+                </div>
                 <div className="written_by_box">
                     <img
                         src="/team-app-ts/img/blog_writer_1.svg"
