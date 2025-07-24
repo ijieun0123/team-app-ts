@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { blogCardData } from "../data/blogCardData";
 import BlogCard from "../components/BlogCard";
 import "../styles/Blog.scss";
+import Button from "../components/Button";
 
 const Blog: FC = () => {
     return (
@@ -28,10 +29,7 @@ const Blog: FC = () => {
                         />
                     ))}
                 </div>
-                <button className="next_btn" aria-label="Next">
-                    <span className="caption">Next</span>
-                    <img src="img/next_arrow.svg" alt="next button" />
-                </button>
+                <Button className="caption next_btn">Next</Button>
             </div>
         </main>
     );
