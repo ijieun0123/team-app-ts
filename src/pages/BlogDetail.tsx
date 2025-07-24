@@ -2,8 +2,34 @@ import type { FC } from "react";
 import "../styles/BlogDetail.scss";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const BlogDetail: FC = () => {
+    const { blogId } = useParams();
+    console.log(blogId);
+
+    const handleDelete = async () => {
+        try {
+            const response = await fetch(
+                `http://localhost:8080/api/blogs/${blogId}`,
+                {
+                    method: "DELETE",
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("삭제 실패");
+            }
+
+            alert("삭제 완료!");
+            // 페이지 이동 or 새로고침
+            // navigate("/") 같은 것도 가능
+        } catch (error) {
+            console.error("삭제 중 에러:", error);
+            alert("삭제 중 오류 발생");
+        }
+    };
+
     return (
         <main id="main-content" className="blog_detail" tabIndex={-1}>
             <div className="blog_detail_container">
@@ -101,7 +127,11 @@ const BlogDetail: FC = () => {
                     >
                         Update
                     </Button>
-                    <Button $black className="caption delete_btn">
+                    <Button
+                        $black
+                        className="caption delete_btn"
+                        onClick={handleDelete}
+                    >
                         Delete
                     </Button>
                 </div>
