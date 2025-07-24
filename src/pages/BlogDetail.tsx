@@ -8,10 +8,10 @@ const BlogDetail: FC = () => {
                 <h1 className="title">
                     10 Secret tips for managing a remote team
                 </h1>
-                <div className="avatar">
+                <div className="writer">
                     <img
-                        src="/team-app-ts/img/blog_avatar_1.svg"
-                        alt="avatar"
+                        src="/team-app-ts/img/blog_writer_1.svg"
+                        alt="writer"
                     />
                     <span className="caption">Kristin Watson</span>
                     <span className="line">|</span>
@@ -93,8 +93,8 @@ const BlogDetail: FC = () => {
                 </p>
                 <div className="written_by_box">
                     <img
-                        src="/team-app-ts/img/blog_avatar_1.svg"
-                        alt="avatar"
+                        src="/team-app-ts/img/blog_writer_1.svg"
+                        alt="writer"
                     />
                     <div className="txt_box">
                         <span className="written_by">WRITTEN BY</span>
@@ -110,8 +110,8 @@ const BlogDetail: FC = () => {
                     <p className="input_title">Join the conversation</p>
                     <div className="img_textarea">
                         <img
-                            src="/team-app-ts/img/blog_avatar_2.svg"
-                            alt="avatar"
+                            src="/team-app-ts/img/blog_writer_2.svg"
+                            alt="writer"
                         />
                         <label htmlFor="comment" className="visually_hidden">
                             Write a comment

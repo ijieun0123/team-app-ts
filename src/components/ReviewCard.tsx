@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 type ReviewCardProps = {
-    avatarImage: string;
+    writerImage: string;
     comments: string;
-    avatarName: string;
-    avatarCareer: string;
+    writerName: string;
+    writerCareer: string;
 };
 
 const Card = styled.div`
@@ -45,22 +45,22 @@ const Comments = styled.p`
     text-overflow: ellipsis;
 `;
 
-const Avatar = styled.div`
+const Writer = styled.div`
     display: flex;
     align-items: center;
     gap: 15px;
     margin-top: auto;
 `;
 
-const AvatarCareer = styled.p`
+const WriterCareer = styled.p`
     color: var(--gray-color);
 `;
 
 const ReviewCard = ({
-    avatarImage,
+    writerImage,
     comments,
-    avatarName,
-    avatarCareer,
+    writerName,
+    writerCareer,
 }: ReviewCardProps) => {
     return (
         <Card>
@@ -72,15 +72,15 @@ const ReviewCard = ({
                 <img src="/team-app-ts/img/star.svg" alt="star" />
             </Stars>
             <Comments className="paragraph">{comments}</Comments>
-            <Avatar>
-                <img src={avatarImage} alt="avatar" />
+            <Writer>
+                <img src={writerImage} alt="writer" />
                 <div>
-                    <p className="paragraph">{avatarName}</p>
-                    <AvatarCareer className="caption">
-                        {avatarCareer}
-                    </AvatarCareer>
+                    <p className="paragraph">{writerName}</p>
+                    <WriterCareer className="caption">
+                        {writerCareer}
+                    </WriterCareer>
                 </div>
-            </Avatar>
+            </Writer>
         </Card>
     );
 };

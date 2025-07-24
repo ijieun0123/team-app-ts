@@ -242,10 +242,10 @@ const Home: FC = () => {
                             {reviewCardData.map((item, idx) => (
                                 <SwiperSlide key={idx}>
                                     <ReviewCard
-                                        avatarImage={item.avatarImage}
+                                        writerImage={item.writerImage}
                                         comments={item.comments}
-                                        avatarName={item.avatarName}
-                                        avatarCareer={item.avatarCareer}
+                                        writerName={item.writerName}
+                                        writerCareer={item.writerCareer}
                                     />
                                 </SwiperSlide>
                             ))}

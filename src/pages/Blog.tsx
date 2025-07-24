@@ -22,8 +22,8 @@ const Blog: FC = () => {
                             cardImage={item.cardImage}
                             title={item.title}
                             description={item.description}
-                            avatarImage={item.avatarImage}
-                            avatarName={item.avatarName}
+                            writerImage={item.writerImage}
+                            writerName={item.writerName}
                             createdAt={item.createdAt}
                         />
                     ))}

@@ -4,8 +4,8 @@ type BlogCardProps = {
     cardImage: string;
     title: string;
     description: string;
-    avatarImage: string;
-    avatarName: string;
+    writerImage: string;
+    writerName: string;
     createdAt: string;
 };
 
@@ -57,13 +57,13 @@ const Description = styled.p`
     text-overflow: ellipsis;
 `;
 
-const Avatar = styled.div`
+const Writer = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
 `;
 
-const AvatarImg = styled.img`
+const WriterImg = styled.img`
     margin-right: 5px;
 `;
 
@@ -75,8 +75,8 @@ const BlogCard = ({
     cardImage,
     title,
     description,
-    avatarImage,
-    avatarName,
+    writerImage,
+    writerName,
     createdAt,
 }: BlogCardProps) => {
     return (
@@ -88,12 +88,12 @@ const BlogCard = ({
             <TxtBox>
                 <CardTitle className="card_title">{title}</CardTitle>
                 <Description className="caption">{description}</Description>
-                <Avatar>
-                    <AvatarImg src={avatarImage} alt="프로필" />
-                    <span className="caption">{avatarName}</span>
+                <Writer>
+                    <WriterImg src={writerImage} alt="프로필" />
+                    <span className="caption">{writerName}</span>
                     <Line>|</Line>
                     <span className="caption">{createdAt}</span>
-                </Avatar>
+                </Writer>
             </TxtBox>
         </Card>
     );
