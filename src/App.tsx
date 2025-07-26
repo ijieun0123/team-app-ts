@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import BlogList from "./pages/BlogList";
 import BlogDetail from "./pages/BlogDetail";
 import BlogWrite from "./pages/BlogWrite";
+import Signup from "./pages/Signup";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/blog-detail/:id" element={<BlogDetail />}></Route>
                 <Route path="/blog-write" element={<BlogWrite />}></Route>
                 <Route path="/blog-update/:id" element={<BlogWrite />}></Route>
+                <Route path="/signup" element={<Signup />}></Route>
             </Routes>
             <Footer />
         </ThemeProvider>
