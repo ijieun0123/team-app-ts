@@ -10,6 +10,11 @@
                 margin-bottom: 10px;
             }
             .paragraph {
+                .signup_btn {
+                    display: inline-block;
+                    margin-left: 10px;
+                    color: var(--blue-color);
+                }
             }
         }
         .input_textarea_box {

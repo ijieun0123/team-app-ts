@@ -5,7 +5,6 @@ import InputTextarea from "../components/InputTextarea";
 import Button from "../components/Button";
 
 const Login: FC = () => {
-    const { id } = useParams<{ id: string }>(); // URL에서 id 추출
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
@@ -49,6 +48,12 @@ const Login: FC = () => {
             <div className="container">
                 <div className="title_box">
                     <h1 className="title">Login</h1>
+                    <p className="paragraph">
+                        Don't have an account yet?
+                        <a className="signup_btn" href="/team-app-ts/signup">
+                            Signup
+                        </a>
+                    </p>
                 </div>
                 <form
                     className="input_textarea_box"
