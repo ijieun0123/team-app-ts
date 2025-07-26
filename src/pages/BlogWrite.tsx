@@ -11,9 +11,6 @@ const BlogWrite: FC = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
-    const [writerImage, setWriterImage] = useState("");
-    const [writerName, setWriterName] = useState("");
-    const [career, setCareer] = useState("");
 
     // 1. id가 있을 때 기존 데이터 불러오기
     useEffect(() => {
@@ -27,9 +24,6 @@ const BlogWrite: FC = () => {
                     setTitle(data.title);
                     setDescription(data.description);
                     setImage(data.image);
-                    setWriterImage(data.writerImage);
-                    setWriterName(data.writerName);
-                    setCareer(data.career);
                 })
                 .catch(err => {
                     console.error(err);
@@ -44,9 +38,6 @@ const BlogWrite: FC = () => {
             title,
             description,
             image,
-            writerImage,
-            writerName,
-            career,
         };
 
         try {
@@ -133,48 +124,6 @@ const BlogWrite: FC = () => {
                             className="paragraph"
                             value={description}
                             onChange={e => setDescription(e.target.value)}
-                        />
-                    </div>
-                    <div className="txt_box">
-                        <label htmlFor="writerImage" className="input_title">
-                            Writer image
-                        </label>
-                        <InputTextarea
-                            id="writerImage"
-                            as="input"
-                            type="text"
-                            placeholder="Writer image"
-                            className="paragraph"
-                            value={writerImage}
-                            onChange={e => setWriterImage(e.target.value)}
-                        />
-                    </div>
-                    <div className="txt_box">
-                        <label htmlFor="writerName" className="input_title">
-                            Writer name
-                        </label>
-                        <InputTextarea
-                            id="writerName"
-                            as="input"
-                            type="text"
-                            placeholder="Writer name"
-                            className="paragraph"
-                            value={writerName}
-                            onChange={e => setWriterName(e.target.value)}
-                        />
-                    </div>
-                    <div className="txt_box">
-                        <label htmlFor="career" className="input_title">
-                            Writer career
-                        </label>
-                        <InputTextarea
-                            id="career"
-                            as="input"
-                            type="text"
-                            placeholder="Writer career"
-                            className="paragraph"
-                            value={career}
-                            onChange={e => setCareer(e.target.value)}
                         />
                     </div>
                 </form>
