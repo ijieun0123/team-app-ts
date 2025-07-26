@@ -43,8 +43,14 @@ const BlogDetail: FC = () => {
 
     const handleDelete = async () => {
         try {
+            const token = localStorage.getItem("accessToken");
+
             const response = await fetch(`/api/blogs/${id}`, {
                 method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
             });
 
             if (!response.ok) {
