@@ -1,6 +1,6 @@
 import { useState, useEffect, type FC } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "../styles/BlogWrite.scss";
+import "../styles/FormPage.scss";
 import InputTextarea from "../components/InputTextarea";
 import Button from "../components/Button";
 
