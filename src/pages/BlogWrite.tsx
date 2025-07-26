@@ -41,10 +41,13 @@ const BlogWrite: FC = () => {
         };
 
         try {
+            const token = localStorage.getItem("accessToken");
+
             const response = await fetch(`/api/blogs${id ? `/${id}` : ""}`, {
                 method: id ? "PATCH" : "POST", // 수정: PUT, 신규 생성: POST
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify(data),
             });
