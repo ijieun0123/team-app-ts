@@ -41,7 +41,7 @@ const Signup: FC = () => {
             alert("회원가입 되었습니다.");
 
             // 저장 후 로그인 페이지로 이동
-            // navigate(id ? `/blog-detail/${id}` : "/blog");
+            navigate("/login");
         } catch (error) {
             console.error("Error signup:", error);
             alert("회원가입 실패");
@@ -58,7 +58,6 @@ const Signup: FC = () => {
                     className="input_textarea_box"
                     onSubmit={e => e.preventDefault()}
                 >
-                    {/* input, textarea에 value 추가 */}
                     <div className="txt_box">
                         <label htmlFor="email" className="input_title">
                             Email

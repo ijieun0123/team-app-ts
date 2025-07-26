@@ -9,6 +9,7 @@ import BlogList from "./pages/BlogList";
 import BlogDetail from "./pages/BlogDetail";
 import BlogWrite from "./pages/BlogWrite";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/blog-write" element={<BlogWrite />}></Route>
                 <Route path="/blog-update/:id" element={<BlogWrite />}></Route>
                 <Route path="/signup" element={<Signup />}></Route>
+                <Route path="/login" element={<Login />}></Route>
             </Routes>
             <Footer />
         </ThemeProvider>
