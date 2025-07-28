@@ -130,8 +130,8 @@ const Header: React.FC = () => {
                         />
                     </Link>
                     <Link to="#">Product</Link>
-                    <Link to="/blog">Blog</Link>
-                    <Link to="/blog-write">Write</Link>
+                    <Link to="/blogs">Blog</Link>
+                    <Link to="/blogs/new">Write</Link>
                     <Link to="#">Contact</Link>
                     <Link to="/login">Login</Link>
                     <Link to="#" className="get_access_btn">

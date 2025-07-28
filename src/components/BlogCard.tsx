@@ -93,7 +93,7 @@ const BlogCard = ({
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/blog-detail/${id}`); // 여기서 id를 경로에 포함시킴
+        navigate(`/blogs/${id}`); // 여기서 id를 경로에 포함시킴
     };
 
     return (

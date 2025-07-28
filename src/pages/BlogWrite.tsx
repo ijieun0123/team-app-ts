@@ -72,7 +72,7 @@ const BlogWrite: FC = () => {
             console.log("Saved successfully:", result);
 
             // 저장 후 리스트 또는 상세 페이지로 이동
-            navigate(id ? `/blog-detail/${id}` : "/blog");
+            navigate(id ? `/blogs/${id}` : "/blogs");
         } catch (error) {
             console.error("Error saving blog post:", error);
             alert("저장 실패");

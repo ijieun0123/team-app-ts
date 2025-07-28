@@ -21,10 +21,10 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/blog" element={<BlogList />}></Route>
-                <Route path="/blog-detail/:id" element={<BlogDetail />}></Route>
-                <Route path="/blog-write" element={<BlogWrite />}></Route>
-                <Route path="/blog-update/:id" element={<BlogWrite />}></Route>
+                <Route path="/blogs" element={<BlogList />}></Route>
+                <Route path="/blogs/:id" element={<BlogDetail />}></Route>
+                <Route path="/blogs/new" element={<BlogWrite />}></Route>
+                <Route path="/blogs/:id/edit" element={<BlogWrite />}></Route>
                 <Route path="/signup" element={<Signup />}></Route>
                 <Route path="/login" element={<Login />}></Route>
             </Routes>

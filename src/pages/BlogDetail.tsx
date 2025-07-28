@@ -132,7 +132,7 @@ const BlogDetail: FC = () => {
                                 <Button
                                     className="update_btn caption"
                                     as={Link}
-                                    to={`/blog-update/${id}`}
+                                    to={`/blogs/${id}/edit`}
                                 >
                                     Update
                                 </Button>
@@ -188,7 +188,7 @@ const BlogDetail: FC = () => {
                     message="블로그 글이 삭제되었습니다."
                     onClose={() => {
                         setIsSuccessOpen(false);
-                        navigate("/blog");
+                        navigate("/blogs");
                     }}
                 />
             )}
