@@ -3,7 +3,7 @@ import "../styles/BlogDetail.scss";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 type Blog = {
     title: string;
@@ -13,12 +13,38 @@ type Blog = {
     writerName: string;
     createdAt: string;
     career: string;
+    email: string;
 };
 
 const BlogDetail: FC = () => {
     const [blog, setBlog] = useState<Blog | null>(null);
     const { id } = useParams();
     const navigate = useNavigate();
+
+    const [currentUserEmail, setCurrentUserEmail] = useState("");
+
+    const isOwner = useMemo(() => {
+        return blog && currentUserEmail === blog.email;
+    }, [blog, currentUserEmail]);
+
+    useEffect(() => {
+        const fetchCurrentUser = async () => {
+            const token = localStorage.getItem("accessToken");
+
+            const response = await fetch("/api/users/me", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setCurrentUserEmail(data.email);
+            }
+        };
+
+        fetchCurrentUser();
+    }, []);
 
     useEffect(() => {
         const fetchBlog = async () => {
@@ -101,22 +127,24 @@ const BlogDetail: FC = () => {
                             ))}
                         </p>
 
-                        <div className="btn_box">
-                            <Button
-                                className="update_btn caption"
-                                as={Link}
-                                to={`/blog-update/${id}`}
-                            >
-                                Update
-                            </Button>
-                            <Button
-                                $black
-                                className="delete_btn caption"
-                                onClick={handleDelete}
-                            >
-                                Delete
-                            </Button>
-                        </div>
+                        {isOwner && (
+                            <div className="btn_box">
+                                <Button
+                                    className="update_btn caption"
+                                    as={Link}
+                                    to={`/blog-update/${id}`}
+                                >
+                                    Update
+                                </Button>
+                                <Button
+                                    $black
+                                    className="delete_btn caption"
+                                    onClick={handleDelete}
+                                >
+                                    Delete
+                                </Button>
+                            </div>
+                        )}
 
                         <div className="written_by_box">
                             <img src={blog.writerImage} alt="writer" />
