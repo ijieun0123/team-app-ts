@@ -71,8 +71,6 @@ const BlogWrite: FC = () => {
             const result = await response.json();
             console.log("Saved successfully:", result);
 
-            alert(id ? "블로그가 수정되었습니다." : "블로그가 저장되었습니다.");
-
             // 저장 후 리스트 또는 상세 페이지로 이동
             navigate(id ? `/blog-detail/${id}` : "/blog");
         } catch (error) {

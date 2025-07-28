@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
+import SuccessModal from "../components/SuccessModal";
 
 type Blog = {
     title: string;
@@ -22,6 +23,7 @@ const BlogDetail: FC = () => {
     const navigate = useNavigate();
 
     const [currentUserEmail, setCurrentUserEmail] = useState("");
+    const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
     const isOwner = useMemo(() => {
         return blog && currentUserEmail === blog.email;
@@ -83,9 +85,7 @@ const BlogDetail: FC = () => {
                 throw new Error("삭제 실패");
             }
 
-            alert("삭제 완료!");
-            // 페이지 이동
-            navigate({ pathname: "/blog" });
+            setIsSuccessOpen(true);
         } catch (error) {
             console.error("삭제 중 에러:", error);
             alert("삭제 중 오류 발생");
@@ -182,6 +182,16 @@ const BlogDetail: FC = () => {
                     <p>Loading...</p>
                 )}
             </div>
+            {/* 모달 */}
+            {isSuccessOpen && (
+                <SuccessModal
+                    message="블로그 글이 삭제되었습니다."
+                    onClose={() => {
+                        setIsSuccessOpen(false);
+                        navigate("/blog");
+                    }}
+                />
+            )}
         </main>
     );
 };

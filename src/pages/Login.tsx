@@ -72,8 +72,6 @@ const Login: FC = () => {
             console.log("Login successfully:", result);
             localStorage.setItem("accessToken", result.accessToken);
 
-            alert("로그인 되었습니다.");
-
             // 로그인 후 홈으로 이동
             navigate("/");
         } catch (error) {

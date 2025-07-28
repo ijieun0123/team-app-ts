@@ -5,6 +5,7 @@ import InputTextarea from "../components/InputTextarea";
 import Button from "../components/Button";
 import ErrorModal from "../components/ErrorModal";
 import { useErrorHandler } from "../hooks/useErrorHandler";
+import SuccessModal from "../components/SuccessModal";
 
 const Signup: FC = () => {
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Signup: FC = () => {
     const [name, setName] = useState("");
     const [profileImage, setProfileImage] = useState("");
     const [career, setCareer] = useState("");
+    const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
     const { error, setError, handleError } = useErrorHandler([
         "email",
@@ -49,10 +51,7 @@ const Signup: FC = () => {
 
             console.log("Signup successfully");
 
-            alert("회원가입 되었습니다.");
-
-            // 저장 후 로그인 페이지로 이동
-            navigate("/login");
+            setIsSuccessOpen(true);
         } catch (error: any) {
             console.error("Error signup:", error);
             alert("회원가입 실패");
@@ -144,8 +143,17 @@ const Signup: FC = () => {
                     Signup
                 </Button>
             </div>
-            {/* 에러 모달 */}
+            {/* 모달 */}
             <ErrorModal error={error} onClose={() => setError(null)} />
+            {isSuccessOpen && (
+                <SuccessModal
+                    message="회원가입이 완료되었습니다!"
+                    onClose={() => {
+                        setIsSuccessOpen(false);
+                        navigate("/login");
+                    }}
+                />
+            )}
         </main>
     );
 };
