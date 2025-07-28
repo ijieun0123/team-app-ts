@@ -3,12 +3,48 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/FormPage.scss";
 import InputTextarea from "../components/InputTextarea";
 import Button from "../components/Button";
+import ErrorModal from "../components/ErrorModal";
+
+interface FieldError {
+    field: string;
+    reason: string;
+}
+
+interface ErrorResponse {
+    code: string;
+    message: string;
+    errors?: FieldError[];
+}
 
 const Login: FC = () => {
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState<ErrorResponse | null>(null);
+
+    // 에러 필드 정렬 숮서 정의
+    const FIELD_ORDER = ["email", "password"];
+
+    // 중복 제거 및 정렬된 에러만 반환
+    const normalizeErrors = (
+        errors: FieldError[] | undefined
+    ): FieldError[] => {
+        if (!errors) return [];
+
+        const map = new Map<string, string>();
+
+        for (const { field, reason } of errors) {
+            if (!map.has(field)) {
+                map.set(field, reason); // 첫 번째 에러만 사용
+            }
+        }
+
+        return FIELD_ORDER.filter(field => map.has(field)).map(field => ({
+            field,
+            reason: map.get(field)!,
+        }));
+    };
 
     const handleLogin = async () => {
         const data = {
@@ -26,7 +62,10 @@ const Login: FC = () => {
             });
 
             if (!response.ok) {
-                throw new Error("Fail to login");
+                const errData: ErrorResponse = await response.json();
+                const cleanedErrors = normalizeErrors(errData.errors);
+                setError({ ...errData, errors: cleanedErrors });
+                return;
             }
 
             const result = await response.json();
@@ -92,6 +131,8 @@ const Login: FC = () => {
                     Login
                 </Button>
             </div>
+            {/* 에러 모달 */}
+            <ErrorModal error={error} onClose={() => setError(null)} />
         </main>
     );
 };

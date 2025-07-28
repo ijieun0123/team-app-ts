@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/FormPage.scss";
 import InputTextarea from "../components/InputTextarea";
 import Button from "../components/Button";
+import ErrorModal from "../components/ErrorModal";
+import { useErrorHandler } from "../hooks/useErrorHandler";
 
 const BlogWrite: FC = () => {
     const { id } = useParams<{ id: string }>(); // URL에서 id 추출
@@ -11,6 +13,12 @@ const BlogWrite: FC = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
+
+    const { error, setError, handleError } = useErrorHandler([
+        "title",
+        "blogImage",
+        "description",
+    ]);
 
     // 1. id가 있을 때 기존 데이터 불러오기
     useEffect(() => {
@@ -53,9 +61,11 @@ const BlogWrite: FC = () => {
             });
 
             if (!response.ok) {
-                throw new Error(
-                    id ? "Failed to update blog" : "Failed to save blog"
-                );
+                if (!response.ok) {
+                    const errData = await response.json();
+                    handleError(errData);
+                    return;
+                }
             }
 
             const result = await response.json();
@@ -134,6 +144,8 @@ const BlogWrite: FC = () => {
                     {id ? "Update" : "Save"}
                 </Button>
             </div>
+            {/* 에러 모달 */}
+            <ErrorModal error={error} onClose={() => setError(null)} />
         </main>
     );
 };

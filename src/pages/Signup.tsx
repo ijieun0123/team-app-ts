@@ -1,11 +1,12 @@
 import { useState, type FC } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/FormPage.scss";
 import InputTextarea from "../components/InputTextarea";
 import Button from "../components/Button";
+import ErrorModal from "../components/ErrorModal";
+import { useErrorHandler } from "../hooks/useErrorHandler";
 
 const Signup: FC = () => {
-    const { id } = useParams<{ id: string }>(); // URL에서 id 추출
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
@@ -13,6 +14,14 @@ const Signup: FC = () => {
     const [name, setName] = useState("");
     const [profileImage, setProfileImage] = useState("");
     const [career, setCareer] = useState("");
+
+    const { error, setError, handleError } = useErrorHandler([
+        "email",
+        "password",
+        "name",
+        "profileImage",
+        "career",
+    ]);
 
     const handleSignup = async () => {
         const data = {
@@ -33,7 +42,9 @@ const Signup: FC = () => {
             });
 
             if (!response.ok) {
-                throw new Error("Failed to signup");
+                const errData = await response.json();
+                handleError(errData);
+                return;
             }
 
             console.log("Signup successfully");
@@ -42,7 +53,7 @@ const Signup: FC = () => {
 
             // 저장 후 로그인 페이지로 이동
             navigate("/login");
-        } catch (error) {
+        } catch (error: any) {
             console.error("Error signup:", error);
             alert("회원가입 실패");
         }
@@ -133,6 +144,8 @@ const Signup: FC = () => {
                     Signup
                 </Button>
             </div>
+            {/* 에러 모달 */}
+            <ErrorModal error={error} onClose={() => setError(null)} />
         </main>
     );
 };
