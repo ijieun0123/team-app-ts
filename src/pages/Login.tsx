@@ -4,6 +4,8 @@ import "../styles/FormPage.scss";
 import InputTextarea from "../components/InputTextarea";
 import Button from "../components/Button";
 import ErrorModal from "../components/ErrorModal";
+import { Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 interface FieldError {
     field: string;
@@ -22,6 +24,8 @@ const Login: FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState<ErrorResponse | null>(null);
+
+    const { t } = useTranslation();
 
     // 에러 필드 정렬 숮서 정의
     const FIELD_ORDER = ["email", "password"];
@@ -84,11 +88,13 @@ const Login: FC = () => {
         <main id="main-content" className="write" tabIndex={-1}>
             <div className="container">
                 <div className="title_box">
-                    <h1 className="title">Login</h1>
+                    <h1 className="title">
+                        <Trans i18nKey="loginTitle" />
+                    </h1>
                     <p className="paragraph">
-                        Don't have an account yet?
+                        <Trans i18nKey="loginParagraph" />
                         <a className="signup_btn" href="/team-app-ts/signup">
-                            Signup
+                            <Trans i18nKey="signupTitle" />
                         </a>
                     </p>
                 </div>
@@ -98,7 +104,7 @@ const Login: FC = () => {
                 >
                     <div className="txt_box">
                         <label htmlFor="email" className="input_title">
-                            Email
+                            <Trans i18nKey="emailLabel" />
                         </label>
                         <InputTextarea
                             id="email"
@@ -112,7 +118,7 @@ const Login: FC = () => {
                     </div>
                     <div className="txt_box">
                         <label htmlFor="password" className="input_title">
-                            Password
+                            <Trans i18nKey="passwordLabel" />
                         </label>
                         <InputTextarea
                             id="password"

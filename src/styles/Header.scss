@@ -19,7 +19,8 @@ header {
             align-items: center;
             gap: 35px;
 
-            a {
+            a,
+            .langToggleBtn {
                 color: rgba(255, 255, 252556, 0.8);
                 font-size: 16px;
             }
@@ -94,7 +95,8 @@ header {
                     width: 60px;
                     margin-bottom: 15px;
                 }
-                a {
+                a,
+                .langToggleBtn {
                     color: var(--gray-color);
                 }
                 .get_access_btn {
@@ -129,7 +131,8 @@ header.white_bg {
 
     .container {
         nav {
-            a {
+            a,
+            .langToggleBtn {
                 color: var(--black-color);
                 transition: 0.2s;
             }

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import SuccessModal from "../components/SuccessModal";
+import { Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 type Blog = {
     title: string;
@@ -24,6 +26,8 @@ const BlogDetail: FC = () => {
 
     const [currentUserEmail, setCurrentUserEmail] = useState("");
     const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+
+    const { t } = useTranslation();
 
     const isOwner = useMemo(() => {
         return blog && currentUserEmail === blog.email;
@@ -149,7 +153,9 @@ const BlogDetail: FC = () => {
                         <div className="written_by_box">
                             <img src={blog.writerImage} alt="writer" />
                             <div className="txt_box">
-                                <span className="written_by">WRITTEN BY</span>
+                                <span className="written_by">
+                                    <Trans i18nKey="writtenBy" />
+                                </span>
                                 <span className="name">{blog.writerName}</span>
                                 <span className="caption">{blog.career}</span>
                             </div>
@@ -158,7 +164,9 @@ const BlogDetail: FC = () => {
                         <span className="line"></span>
 
                         <form className="conversation">
-                            <p className="input_title">Join the conversation</p>
+                            <p className="input_title">
+                                <Trans i18nKey="joinTheConversation" />
+                            </p>
                             <div className="img_textarea">
                                 <img
                                     src="/team-app-ts/img/blog_writer_2.svg"
@@ -185,7 +193,7 @@ const BlogDetail: FC = () => {
             {/* 모달 */}
             {isSuccessOpen && (
                 <SuccessModal
-                    message="블로그 글이 삭제되었습니다."
+                    message={t("blogDeleteSuccess")}
                     onClose={() => {
                         setIsSuccessOpen(false);
                         navigate("/blogs");

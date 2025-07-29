@@ -10,6 +10,7 @@ import BlogDetail from "./pages/BlogDetail";
 import BlogWrite from "./pages/BlogWrite";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import "./i18n";
 
 function App() {
     return (
