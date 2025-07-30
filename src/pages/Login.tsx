@@ -1,54 +1,25 @@
 import { useState, type FC } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/FormPage.scss";
 import InputTextarea from "../components/InputTextarea";
 import Button from "../components/Button";
 import ErrorModal from "../components/ErrorModal";
 import { Trans } from "react-i18next";
 import { useTranslation } from "react-i18next";
-
-interface FieldError {
-    field: string;
-    reasonCode: string;
-}
-
-interface ErrorResponse {
-    code: string;
-    message: string;
-    errors?: FieldError[];
-}
+import { useErrorHandler } from "../hooks/useErrorHandler";
 
 const Login: FC = () => {
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState<ErrorResponse | null>(null);
 
     const { t } = useTranslation();
 
-    // 에러 필드 정렬 숮서 정의
-    const FIELD_ORDER = ["email", "password"];
-
-    // 중복 제거 및 정렬된 에러만 반환
-    const normalizeErrors = (
-        errors: FieldError[] | undefined
-    ): FieldError[] => {
-        if (!errors) return [];
-
-        const map = new Map<string, string>();
-
-        for (const { field, reasonCode } of errors) {
-            if (!map.has(field)) {
-                map.set(field, reasonCode); // 첫 번째 에러만 사용
-            }
-        }
-
-        return FIELD_ORDER.filter(field => map.has(field)).map(field => ({
-            field,
-            reasonCode: map.get(field)!,
-        }));
-    };
+    const { error, setError, handleError } = useErrorHandler([
+        "email",
+        "password",
+    ]);
 
     const handleLogin = async () => {
         const data = {
@@ -66,9 +37,8 @@ const Login: FC = () => {
             });
 
             if (!response.ok) {
-                const errData: ErrorResponse = await response.json();
-                const cleanedErrors = normalizeErrors(errData.errors);
-                setError({ ...errData, errors: cleanedErrors });
+                const errData = await response.json();
+                handleError(errData);
                 return;
             }
 
