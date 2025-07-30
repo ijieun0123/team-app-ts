@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 interface FieldError {
     field: string;
-    reason: string;
+    reasonCode: string;
 }
 
 interface ErrorResponse {
@@ -38,15 +38,15 @@ const Login: FC = () => {
 
         const map = new Map<string, string>();
 
-        for (const { field, reason } of errors) {
+        for (const { field, reasonCode } of errors) {
             if (!map.has(field)) {
-                map.set(field, reason); // 첫 번째 에러만 사용
+                map.set(field, reasonCode); // 첫 번째 에러만 사용
             }
         }
 
         return FIELD_ORDER.filter(field => map.has(field)).map(field => ({
             field,
-            reason: map.get(field)!,
+            reasonCode: map.get(field)!,
         }));
     };
 

@@ -42,5 +42,29 @@
     "joinTheConversation": "Join the conversation",
     "writtenBy": "WRITTEN BY",
     "signupSuccess": "Signup completed successfully!",
-    "blogDeleteSuccess": "The blog post has been deleted."
+    "blogDeleteSuccess": "The blog post has been deleted.",
+    "validation": {
+        "REQUIRED_EMAIL": "Email is required.",
+        "INVALID_EMAIL_FORMAT": "Invalid email format.",
+        "REQUIRED_PASSWORD": "Password is required.",
+        "INVALID_PASSWORD_LENGTH": "Password must be between 8 and 20 characters.",
+        "REQUIRED_NAME": "Name is required.",
+        "INVALID_NAME_LENGTH": "Name must be between 2 and 20 characters.",
+        "REQUIRED_JOB": "Job is required.",
+        "INVALID_CAREER_LENGTH": "Career information can be up to 100 characters.",
+        "REQUIRED_TITLE": "Title is required.",
+        "INVALID_TITLE_LENGTH": "Title must be 100 characters or fewer.",
+        "REQUIRED_CONTENT": "Content is required."
+    },
+    "error": {
+        "EMAIL_DUPLICATED": "This email is already in use.",
+        "VALIDATION_ERROR": "The submitted information is invalid.",
+        "USER_NOT_FOUND": "User not found.",
+        "BLOG_NOT_FOUND": "Blog post not found.",
+        "INVALID_PASSWORD": "The password is incorrect.",
+        "UNAUTHENTICATED": "You are not authenticated.",
+        "UNAUTHORIZED": "You are not authorized for this request.",
+        "INVALID_TOKEN": "The token is invalid.",
+        "ACCESS_DENIED": "Access denied."
+    }
 }

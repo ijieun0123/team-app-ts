@@ -14,7 +14,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ message, onClose }) => {
                     <img src="/team-app-ts/img/success.png" alt="" />
                 </Title>
                 <Message className="paragraph">{message}</Message>
-                <CloseButton onClick={onClose}>확인</CloseButton>
+                <CloseButton onClick={onClose}>OK</CloseButton>
             </ModalContainer>
         </Backdrop>
     );

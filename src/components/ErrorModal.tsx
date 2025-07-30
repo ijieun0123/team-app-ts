@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import React from "react";
 import type { ErrorResponse } from "../utils/errorUtils";
+import { Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const Overlay = styled.div`
     position: fixed;
@@ -67,6 +69,8 @@ interface ErrorModalProps {
 }
 
 const ErrorModal: React.FC<ErrorModalProps> = ({ error, onClose }) => {
+    const { t } = useTranslation();
+
     if (!error) return null;
 
     return (
@@ -78,15 +82,13 @@ const ErrorModal: React.FC<ErrorModalProps> = ({ error, onClose }) => {
             >
                 <img src="/team-app-ts/img/warning.png" alt="warning" />
                 <Title id="modal-title" className="card_title">
-                    {error.message}
+                    {t(`error.${error.code}`, { defaultValue: error.message })}
                 </Title>
                 {error.errors && error.errors.length > 0 && (
                     <ErrorList>
                         {error.errors.map(err => (
                             <ErrorItem className="paragraph" key={err.field}>
-                                {err.reason.split("\n").map((line, idx) => (
-                                    <span key={idx}>{line}</span>
-                                ))}
+                                {t(`validation.${err.reasonCode}`)}
                             </ErrorItem>
                         ))}
                     </ErrorList>

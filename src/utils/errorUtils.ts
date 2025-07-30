@@ -1,6 +1,6 @@
 export interface FieldError {
     field: string;
-    reason: string;
+    reasonCode: string;
 }
 
 export interface ErrorResponse {
@@ -17,9 +17,9 @@ export const normalizeErrors = (
 
     const map = new Map<string, string>();
 
-    for (const { field, reason } of errors) {
+    for (const { field, reasonCode } of errors) {
         if (!map.has(field)) {
-            map.set(field, reason);
+            map.set(field, reasonCode);
         }
     }
 
@@ -27,6 +27,6 @@ export const normalizeErrors = (
         .filter(field => map.has(field))
         .map(field => ({
             field,
-            reason: map.get(field)!,
+            reasonCode: map.get(field)!,
         }));
 };
