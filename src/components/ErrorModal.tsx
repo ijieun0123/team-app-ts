@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import React from "react";
 import type { ErrorResponse } from "../utils/errorUtils";
-import { Trans } from "react-i18next";
 import { useTranslation } from "react-i18next";
 
 const Overlay = styled.div`
@@ -74,11 +73,12 @@ const ErrorModal: React.FC<ErrorModalProps> = ({ error, onClose }) => {
     if (!error) return null;
 
     return (
-        <Overlay>
+        <Overlay onClick={onClose}>
             <ModalContainer
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="modal-title"
+                onClick={e => e.stopPropagation()}
             >
                 <img src="/team-app-ts/img/warning.png" alt="warning" />
                 <Title id="modal-title" className="card_title">
