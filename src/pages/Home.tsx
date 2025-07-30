@@ -139,21 +139,21 @@ const Home: FC = () => {
             {/* management 섹션 */}
             <section className="management">
                 <div className="container">
-                    <img
-                        className="desktop_management_img"
-                        src="/team-app-ts/img/desktop_management.svg"
-                        alt="management image"
-                    />
-                    <img
-                        className="tablet_management_img"
-                        src="/team-app-ts/img/tablet_management.svg"
-                        alt="management image"
-                    />
-                    <img
-                        className="mobile_management_img"
-                        src="/team-app-ts/img/mobile_management.svg"
-                        alt="management image"
-                    />
+                    <picture>
+                        <source
+                            srcSet="/team-app-ts/img/mobile_management.svg"
+                            media="(max-width: 480px)"
+                        />
+                        <source
+                            srcSet="/team-app-ts/img/tablet_management.svg"
+                            media="(max-width: 1024px)"
+                        />
+                        <img
+                            src="/team-app-ts/img/desktop_management.svg"
+                            alt="management image"
+                            className="management_img"
+                        />
+                    </picture>
                     <div className={`txt_box ${isVisible ? "visible" : ""}`}>
                         <h2 className="title fade_up item_1">
                             <Trans
@@ -207,21 +207,21 @@ const Home: FC = () => {
                             />
                         </a>
                     </div>
-                    <img
-                        className="desktop_scheduling_img"
-                        src="/team-app-ts/img/desktop_scheduling.svg"
-                        alt="scheduling image"
-                    />
-                    <img
-                        className="tablet_scheduling_img"
-                        src="/team-app-ts/img/tablet_scheduling.svg"
-                        alt="scheduling image"
-                    />
-                    <img
-                        className="mobile_scheduling_img"
-                        src="/team-app-ts/img/mobile_scheduling.svg"
-                        alt="scheduling image"
-                    />
+                    <picture>
+                        <source
+                            srcSet="/team-app-ts/img/mobile_scheduling.svg"
+                            media="(max-width: 480px)"
+                        />
+                        <source
+                            srcSet="/team-app-ts/img/tablet_scheduling.svg"
+                            media="(max-width: 1024px)"
+                        />
+                        <img
+                            src="/team-app-ts/img/desktop_scheduling.svg"
+                            alt="schedule image"
+                            className="schedule_img"
+                        />
+                    </picture>
                 </div>
             </section>
             {/* review 섹션 */}
