@@ -40,3 +40,5 @@
 <img alt="Image" src="./public/img/blog_desktop.png" />
 
 <img alt="Image" src="./public/img/blog_detail_desktop.png" />
+
+<img alt="Image" src="./public/img/write_blog_desktop.png" />
