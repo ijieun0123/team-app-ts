@@ -27,8 +27,10 @@
             width: 962px;
             max-width: none;
             margin-top: 60px;
-            margin-bottom: 60px;
             margin-left: calc((764px - 962px) / 2);
+        }
+        .paragraph {
+            margin-top: 60px;
         }
         .btn_box {
             display: flex;
@@ -117,9 +119,11 @@
             }
             img.post_img {
                 width: 704px;
-                margin-top: 40px;
                 margin-bottom: 40px;
                 margin-left: calc((523px - 704px) / 2);
+            }
+            .paragraph {
+                margin-top: 40px;
             }
             .written_by_box {
                 margin-top: 70px;
@@ -149,9 +153,11 @@
             }
             img.post_img {
                 width: 100%;
-                margin-top: 30px;
                 margin-bottom: 30px;
                 margin-left: 0;
+            }
+            .paragraph {
+                margin-top: 30px;
             }
             .btn_box {
                 gap: 10px;

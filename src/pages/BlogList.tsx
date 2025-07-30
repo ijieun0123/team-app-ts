@@ -54,10 +54,18 @@ const BlogList: FC = () => {
                     {blogCardData.map((item, idx) => (
                         <BlogCard
                             key={idx}
-                            cardImage={item.image}
+                            cardImage={
+                                item.image
+                                    ? item.image
+                                    : "/team-app-ts/img/empty_image.png"
+                            }
                             title={item.title}
                             description={item.description}
-                            writerImage={item.writerImage}
+                            writerImage={
+                                item.writerImage
+                                    ? item.writerImage
+                                    : "/team-app-ts/img/avatar.png"
+                            }
                             writerName={item.writerName}
                             createdAt={item.createdAt}
                             id={item.id}

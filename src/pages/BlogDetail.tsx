@@ -25,6 +25,7 @@ const BlogDetail: FC = () => {
     const navigate = useNavigate();
 
     const [currentUserEmail, setCurrentUserEmail] = useState("");
+    const [currentUserProfileImg, setCurrentUserProfileImg] = useState("");
     const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
     const { t } = useTranslation();
@@ -46,6 +47,7 @@ const BlogDetail: FC = () => {
             if (response.ok) {
                 const data = await response.json();
                 setCurrentUserEmail(data.email);
+                setCurrentUserProfileImg(data.profileImage);
             }
         };
 
@@ -103,7 +105,14 @@ const BlogDetail: FC = () => {
                     <>
                         <h1 className="title">{blog.title}</h1>
                         <div className="writer">
-                            <img src={blog.writerImage} alt="writer" />
+                            <img
+                                src={
+                                    blog.writerImage
+                                        ? blog.writerImage
+                                        : "/team-app-ts/img/avatar.png"
+                                }
+                                alt="writer"
+                            />
                             <span className="caption">{blog.writerName}</span>
                             <span className="line">|</span>
                             <span className="caption">
@@ -117,11 +126,13 @@ const BlogDetail: FC = () => {
                                 )}
                             </span>
                         </div>
-                        <img
-                            src={blog.image}
-                            alt="blog image"
-                            className="post_img"
-                        />
+                        {blog.image ? (
+                            <img
+                                src={blog.image}
+                                alt="blog image"
+                                className="post_img"
+                            />
+                        ) : null}
                         <p className="paragraph">
                             {blog.description.split("\n").map((line, idx) => (
                                 <span key={idx}>
@@ -151,7 +162,14 @@ const BlogDetail: FC = () => {
                         )}
 
                         <div className="written_by_box">
-                            <img src={blog.writerImage} alt="writer" />
+                            <img
+                                src={
+                                    blog.writerImage
+                                        ? blog.writerImage
+                                        : "/team-app-ts/img/avatar.png"
+                                }
+                                alt="writer"
+                            />
                             <div className="txt_box">
                                 <span className="written_by">
                                     <Trans i18nKey="writtenBy" />
@@ -169,7 +187,11 @@ const BlogDetail: FC = () => {
                             </p>
                             <div className="img_textarea">
                                 <img
-                                    src="/team-app-ts/img/blog_writer_2.svg"
+                                    src={
+                                        currentUserProfileImg
+                                            ? currentUserProfileImg
+                                            : "/team-app-ts/img/avatar.png"
+                                    }
                                     alt="writer"
                                 />
                                 <label
