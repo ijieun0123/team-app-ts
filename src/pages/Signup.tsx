@@ -1,11 +1,15 @@
 import { useState, type FC } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/FormPage.scss";
 import InputTextarea from "../components/InputTextarea";
 import Button from "../components/Button";
+import ErrorModal from "../components/ErrorModal";
+import { useErrorHandler } from "../hooks/useErrorHandler";
+import SuccessModal from "../components/SuccessModal";
+import { Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const Signup: FC = () => {
-    const { id } = useParams<{ id: string }>(); // URL에서 id 추출
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
@@ -13,6 +17,17 @@ const Signup: FC = () => {
     const [name, setName] = useState("");
     const [profileImage, setProfileImage] = useState("");
     const [career, setCareer] = useState("");
+    const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+
+    const { t } = useTranslation();
+
+    const { error, setError, handleError } = useErrorHandler([
+        "email",
+        "password",
+        "name",
+        "profileImage",
+        "career",
+    ]);
 
     const handleSignup = async () => {
         const data = {
@@ -33,16 +48,15 @@ const Signup: FC = () => {
             });
 
             if (!response.ok) {
-                throw new Error("Failed to signup");
+                const errData = await response.json();
+                handleError(errData);
+                return;
             }
 
             console.log("Signup successfully");
 
-            alert("회원가입 되었습니다.");
-
-            // 저장 후 로그인 페이지로 이동
-            navigate("/login");
-        } catch (error) {
+            setIsSuccessOpen(true);
+        } catch (error: any) {
             console.error("Error signup:", error);
             alert("회원가입 실패");
         }
@@ -52,7 +66,9 @@ const Signup: FC = () => {
         <main id="main-content" className="write" tabIndex={-1}>
             <div className="container">
                 <div className="title_box">
-                    <h1 className="title">Signup</h1>
+                    <h1 className="title">
+                        <Trans i18nKey="signupTitle" />
+                    </h1>
                 </div>
                 <form
                     className="input_textarea_box"
@@ -60,7 +76,7 @@ const Signup: FC = () => {
                 >
                     <div className="txt_box">
                         <label htmlFor="email" className="input_title">
-                            Email
+                            <Trans i18nKey="emailLabel" />
                         </label>
                         <InputTextarea
                             id="email"
@@ -74,7 +90,7 @@ const Signup: FC = () => {
                     </div>
                     <div className="txt_box">
                         <label htmlFor="password" className="input_title">
-                            Password
+                            <Trans i18nKey="passwordLabel" />
                         </label>
                         <InputTextarea
                             id="password"
@@ -88,7 +104,7 @@ const Signup: FC = () => {
                     </div>
                     <div className="txt_box">
                         <label htmlFor="name" className="input_title">
-                            Name
+                            <Trans i18nKey="nameLabel" />
                         </label>
                         <InputTextarea
                             id="name"
@@ -102,7 +118,7 @@ const Signup: FC = () => {
                     </div>
                     <div className="txt_box">
                         <label htmlFor="profileImage" className="input_title">
-                            Profile Image
+                            <Trans i18nKey="profileImageLabel" />
                         </label>
                         <InputTextarea
                             id="profileImage"
@@ -116,7 +132,7 @@ const Signup: FC = () => {
                     </div>
                     <div className="txt_box">
                         <label htmlFor="career" className="input_title">
-                            Career
+                            <Trans i18nKey="careerLabel" />
                         </label>
                         <InputTextarea
                             id="career"
@@ -133,6 +149,17 @@ const Signup: FC = () => {
                     Signup
                 </Button>
             </div>
+            {/* 모달 */}
+            <ErrorModal error={error} onClose={() => setError(null)} />
+            {isSuccessOpen && (
+                <SuccessModal
+                    message={t("signupSuccess")}
+                    onClose={() => {
+                        setIsSuccessOpen(false);
+                        navigate("/login");
+                    }}
+                />
+            )}
         </main>
     );
 };

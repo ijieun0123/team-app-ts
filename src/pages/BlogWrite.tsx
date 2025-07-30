@@ -3,6 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/FormPage.scss";
 import InputTextarea from "../components/InputTextarea";
 import Button from "../components/Button";
+import ErrorModal from "../components/ErrorModal";
+import { useErrorHandler } from "../hooks/useErrorHandler";
+import { Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const BlogWrite: FC = () => {
     const { id } = useParams<{ id: string }>(); // URL에서 id 추출
@@ -11,6 +15,14 @@ const BlogWrite: FC = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
+
+    const { error, setError, handleError } = useErrorHandler([
+        "title",
+        "blogImage",
+        "description",
+    ]);
+
+    const { t } = useTranslation();
 
     // 1. id가 있을 때 기존 데이터 불러오기
     useEffect(() => {
@@ -53,18 +65,18 @@ const BlogWrite: FC = () => {
             });
 
             if (!response.ok) {
-                throw new Error(
-                    id ? "Failed to update blog" : "Failed to save blog"
-                );
+                if (!response.ok) {
+                    const errData = await response.json();
+                    handleError(errData);
+                    return;
+                }
             }
 
             const result = await response.json();
             console.log("Saved successfully:", result);
 
-            alert(id ? "블로그가 수정되었습니다." : "블로그가 저장되었습니다.");
-
             // 저장 후 리스트 또는 상세 페이지로 이동
-            navigate(id ? `/blog-detail/${id}` : "/blog");
+            navigate(id ? `/blogs/${id}` : "/blogs");
         } catch (error) {
             console.error("Error saving blog post:", error);
             alert("저장 실패");
@@ -75,11 +87,19 @@ const BlogWrite: FC = () => {
         <main id="main-content" className="write" tabIndex={-1}>
             <div className="container">
                 <div className="title_box">
-                    <h1 className="title">{id ? "Update Blog" : "Write"}</h1>
+                    <h1 className="title">
+                        {id ? (
+                            <Trans i18nKey="updateBlogTitle" />
+                        ) : (
+                            <Trans i18nKey="writeBlogTitle" />
+                        )}
+                    </h1>
                     <p className="paragraph">
-                        {id
-                            ? "Edit and update your blog post"
-                            : "Write to share what you’ve learned with the team"}
+                        {id ? (
+                            <Trans i18nKey="updateBlogSubtitle" />
+                        ) : (
+                            <Trans i18nKey="writeBlogSubtitle" />
+                        )}
                     </p>
                 </div>
                 <form
@@ -89,7 +109,7 @@ const BlogWrite: FC = () => {
                     {/* input, textarea에 value 추가 */}
                     <div className="txt_box">
                         <label htmlFor="title" className="input_title">
-                            Title
+                            <Trans i18nKey="titleLabel" />
                         </label>
                         <InputTextarea
                             id="title"
@@ -103,7 +123,7 @@ const BlogWrite: FC = () => {
                     </div>
                     <div className="txt_box">
                         <label htmlFor="image" className="input_title">
-                            Image
+                            <Trans i18nKey="imageLabel" />
                         </label>
                         <InputTextarea
                             id="image"
@@ -117,7 +137,7 @@ const BlogWrite: FC = () => {
                     </div>
                     <div className="txt_box">
                         <label htmlFor="description" className="input_title">
-                            Description
+                            <Trans i18nKey="descriptionLabel" />
                         </label>
                         <InputTextarea
                             id="description"
@@ -134,6 +154,8 @@ const BlogWrite: FC = () => {
                     {id ? "Update" : "Save"}
                 </Button>
             </div>
+            {/* 에러 모달 */}
+            <ErrorModal error={error} onClose={() => setError(null)} />
         </main>
     );
 };

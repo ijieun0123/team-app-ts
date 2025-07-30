@@ -12,7 +12,7 @@
 
 -   메인 페이지: [https://ijieun0123.github.io/team-app-ts/](https://ijieun0123.github.io/team-app-ts/)
 -   블로그 리스트: [https://ijieun0123.github.io/team-app-ts/blog](https://ijieun0123.github.io/team-app-ts/blog)
--   블로그 상세: [https://ijieun0123.github.io/team-app-ts/blog-detail](https://ijieun0123.github.io/team-app-ts/blog-detail)
+-   블로그 상세: [https://ijieun0123.github.io/team-app-ts/blogs](https://ijieun0123.github.io/team-app-ts/blogs)
 
 <br/>
 

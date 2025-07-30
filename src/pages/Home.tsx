@@ -4,6 +4,8 @@ import ReviewCard from "../components/ReviewCard";
 import { reviewCardData } from "../data/reviewCardData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Trans } from "react-i18next";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,6 +14,8 @@ import "swiper/css/pagination";
 const Home: FC = () => {
     const cardBoxRef = useRef<HTMLDivElement | null>(null);
     const [isVisible, setIsVisible] = useState(false);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         // txtBox scroll effect
@@ -62,23 +66,27 @@ const Home: FC = () => {
                     <div className="left_box">
                         <div className="txt_box">
                             <h1 className="hero_title">
-                                Instant
-                                <br className="mobile_br" />
-                                collaboration
-                                <br className="desktop_br" />
-                                <br className="tablet_br" />
-                                for <br className="mobile_br" />
-                                <span>remote teams</span>
+                                <Trans
+                                    i18nKey="heroTitle"
+                                    components={{
+                                        br: <br />,
+                                        span: <span />,
+                                    }}
+                                />
                             </h1>
                             <p className="hero_paragraph">
-                                All-in-one place for your remote team to chat,
-                                <br />
-                                collaborate and track project progress.
+                                <Trans
+                                    i18nKey="heroSubtitle"
+                                    components={{
+                                        br: <br />,
+                                        span: <span />,
+                                    }}
+                                />
                             </p>
                         </div>
                         <form>
                             <label htmlFor="email" className="visually_hidden">
-                                Email address
+                                <Trans i18nKey="getEarlyAccess" />
                             </label>
                             <input
                                 id="email"
@@ -88,7 +96,7 @@ const Home: FC = () => {
                                 required
                             />
                             <button type="submit" aria-label="Get Early Access">
-                                Get Early Access
+                                <Trans i18nKey="getEarlyAccess" />
                             </button>
                         </form>
                     </div>
@@ -99,22 +107,20 @@ const Home: FC = () => {
                 <div className="container">
                     <div className={`txt_box ${isVisible ? "visible" : ""}`}>
                         <h2 className="title fade_up item_1">
-                            Your Hub for
-                            <br />
-                            teamwork
+                            <Trans
+                                i18nKey="hubTitle"
+                                components={{
+                                    br: <br />,
+                                }}
+                            />
                         </h2>
                         <p className="paragraph fade_up item_2">
-                            In Team App, you’ve got all the flexiblity to work
-                            <br className="tablet_br" />
-                            when, where
-                            <br className="desktop_br" />
-                            and how it’s best for you. You can
-                            <br className="tablet_br" />
-                            easily chat, send audio and
-                            <br className="desktop_br" />
-                            video clips, or hop on a
-                            <br className="tablet_br" />
-                            huddle to talk things out live.
+                            <Trans
+                                i18nKey="hubParagraph"
+                                components={{
+                                    br: <br />,
+                                }}
+                            />
                         </p>
                         <a
                             href="#"
@@ -150,15 +156,15 @@ const Home: FC = () => {
                     />
                     <div className={`txt_box ${isVisible ? "visible" : ""}`}>
                         <h2 className="title fade_up item_1">
-                            Simple task <br />
-                            management
+                            <Trans
+                                i18nKey="managementTitle"
+                                components={{
+                                    br: <br />,
+                                }}
+                            />
                         </h2>
                         <p className="paragraph fade_up item_2">
-                            Tast management with Team App is as simple as it
-                            gets. No complicated layout and need for user
-                            training. Tour team members will intuitively know
-                            how to navigate the platform. it’s so simple a baby
-                            could do it!
+                            <Trans i18nKey="managementParagraph" />
                         </p>
                         <a
                             href="#"
@@ -179,16 +185,15 @@ const Home: FC = () => {
                 <div className="container">
                     <div className={`txt_box ${isVisible ? "visible" : ""}`}>
                         <h2 className="title fade_up item_1">
-                            Scheduling that
-                            <br />
-                            actually works
+                            <Trans
+                                i18nKey="scheduleTitle"
+                                components={{
+                                    br: <br />,
+                                }}
+                            />
                         </h2>
                         <p className="paragraph fade_up item_2">
-                            Integrate the Team calendar with your favorite
-                            calendar app, be it Google Calendar or iCal. Each
-                            team member works with their favorite calendar,
-                            while all the data is synced with the master
-                            calendar.
+                            <Trans i18nKey="scheduleParagraph" />
                         </p>
                         <a
                             href="#"
@@ -222,7 +227,9 @@ const Home: FC = () => {
             {/* review 섹션 */}
             <section className="review">
                 <div className="container">
-                    <h2 className="title">What people say about</h2>
+                    <h2 className="title">
+                        <Trans i18nKey="whatPeopleSayAboutTitle" />
+                    </h2>
                     <div
                         className={`card_box ${isVisible ? "visible" : ""}`}
                         ref={cardBoxRef}

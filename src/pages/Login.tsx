@@ -1,14 +1,25 @@
 import { useState, type FC } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/FormPage.scss";
 import InputTextarea from "../components/InputTextarea";
 import Button from "../components/Button";
+import ErrorModal from "../components/ErrorModal";
+import { Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
+import { useErrorHandler } from "../hooks/useErrorHandler";
 
 const Login: FC = () => {
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const { t } = useTranslation();
+
+    const { error, setError, handleError } = useErrorHandler([
+        "email",
+        "password",
+    ]);
 
     const handleLogin = async () => {
         const data = {
@@ -26,14 +37,14 @@ const Login: FC = () => {
             });
 
             if (!response.ok) {
-                throw new Error("Fail to login");
+                const errData = await response.json();
+                handleError(errData);
+                return;
             }
 
             const result = await response.json();
             console.log("Login successfully:", result);
             localStorage.setItem("accessToken", result.accessToken);
-
-            alert("로그인 되었습니다.");
 
             // 로그인 후 홈으로 이동
             navigate("/");
@@ -47,11 +58,13 @@ const Login: FC = () => {
         <main id="main-content" className="write" tabIndex={-1}>
             <div className="container">
                 <div className="title_box">
-                    <h1 className="title">Login</h1>
+                    <h1 className="title">
+                        <Trans i18nKey="loginTitle" />
+                    </h1>
                     <p className="paragraph">
-                        Don't have an account yet?
+                        <Trans i18nKey="loginParagraph" />
                         <a className="signup_btn" href="/team-app-ts/signup">
-                            Signup
+                            <Trans i18nKey="signupTitle" />
                         </a>
                     </p>
                 </div>
@@ -61,7 +74,7 @@ const Login: FC = () => {
                 >
                     <div className="txt_box">
                         <label htmlFor="email" className="input_title">
-                            Email
+                            <Trans i18nKey="emailLabel" />
                         </label>
                         <InputTextarea
                             id="email"
@@ -75,7 +88,7 @@ const Login: FC = () => {
                     </div>
                     <div className="txt_box">
                         <label htmlFor="password" className="input_title">
-                            Password
+                            <Trans i18nKey="passwordLabel" />
                         </label>
                         <InputTextarea
                             id="password"
@@ -92,6 +105,8 @@ const Login: FC = () => {
                     Login
                 </Button>
             </div>
+            {/* 에러 모달 */}
+            <ErrorModal error={error} onClose={() => setError(null)} />
         </main>
     );
 };

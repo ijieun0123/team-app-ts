@@ -1,7 +1,11 @@
 import "../styles/Footer.scss";
 import { Link } from "react-router-dom";
+import { Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const Footer: React.FC = () => {
+    const { t } = useTranslation();
+
     return (
         <footer>
             <div className="container">
@@ -11,43 +15,63 @@ const Footer: React.FC = () => {
                         alt="team app logo"
                     />
                     <p className="identity_text">
-                        The last team chat you will ever need.
+                        <Trans i18nKey="footerIdentity" />
                     </p>
                 </div>
                 <div className="footer_group">
                     <div className="company">
-                        <h3>Company</h3>
+                        <h3>
+                            <Trans i18nKey="footerCompany" />
+                        </h3>
                         <ul className="links">
                             <li>
-                                <Link to="#">Product</Link>
+                                <Link to="#">
+                                    <Trans i18nKey="footerProduct" />
+                                </Link>
                             </li>
                             <li>
-                                <Link to="#">Blog</Link>
+                                <Link to="#">
+                                    <Trans i18nKey="footerBlog" />
+                                </Link>
                             </li>
                             <li>
-                                <Link to="#">Support</Link>
+                                <Link to="#">
+                                    <Trans i18nKey="footerSupport" />
+                                </Link>
                             </li>
                         </ul>
                     </div>
                     <div className="features">
-                        <h3>Features</h3>
+                        <h3>
+                            <Trans i18nKey="footerFeatures" />
+                        </h3>
                         <ul className="links">
                             <li>
-                                <Link to="#">Screen Sharing</Link>
+                                <Link to="#">
+                                    <Trans i18nKey="footerScreenSharing" />
+                                </Link>
                             </li>
                             <li>
-                                <Link to="#">Knowledgebase</Link>
+                                <Link to="#">
+                                    <Trans i18nKey="footerKnowledgebase" />
+                                </Link>
                             </li>
                             <li>
-                                <Link to="#">Tutorials</Link>
+                                <Link to="#">
+                                    <Trans i18nKey="footerTutorials" />
+                                </Link>
                             </li>
                             <li>
-                                <Link to="#">User Management</Link>
+                                <Link to="#">
+                                    <Trans i18nKey="footerUserManagement" />
+                                </Link>
                             </li>
                         </ul>
                     </div>
                     <div className="contact_us">
-                        <h3>Contact Us</h3>
+                        <h3>
+                            <Trans i18nKey="footerContactUs" />
+                        </h3>
                         <ul className="links">
                             <li>
                                 <Link to="mailto:info@chatapp.com">
@@ -63,9 +87,13 @@ const Footer: React.FC = () => {
                         </ul>
                     </div>
                     <div className="stay_up_to_date">
-                        <h3>Stay up to date</h3>
+                        <h3>
+                            <Trans i18nKey="footerStayUpToDate" />
+                        </h3>
                         <div className="links">
-                            <p>Subscribe to our newsletter.</p>
+                            <p>
+                                <Trans i18nKey="footerSubscribe" />
+                            </p>
                         </div>
                         <form className="email_box">
                             <label

@@ -3,7 +3,10 @@ import "../styles/BlogDetail.scss";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import SuccessModal from "../components/SuccessModal";
+import { Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 type Blog = {
     title: string;
@@ -13,12 +16,41 @@ type Blog = {
     writerName: string;
     createdAt: string;
     career: string;
+    email: string;
 };
 
 const BlogDetail: FC = () => {
     const [blog, setBlog] = useState<Blog | null>(null);
     const { id } = useParams();
     const navigate = useNavigate();
+
+    const [currentUserEmail, setCurrentUserEmail] = useState("");
+    const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+
+    const { t } = useTranslation();
+
+    const isOwner = useMemo(() => {
+        return blog && currentUserEmail === blog.email;
+    }, [blog, currentUserEmail]);
+
+    useEffect(() => {
+        const fetchCurrentUser = async () => {
+            const token = localStorage.getItem("accessToken");
+
+            const response = await fetch("/api/users/me", {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setCurrentUserEmail(data.email);
+            }
+        };
+
+        fetchCurrentUser();
+    }, []);
 
     useEffect(() => {
         const fetchBlog = async () => {
@@ -57,9 +89,7 @@ const BlogDetail: FC = () => {
                 throw new Error("삭제 실패");
             }
 
-            alert("삭제 완료!");
-            // 페이지 이동
-            navigate({ pathname: "/blog" });
+            setIsSuccessOpen(true);
         } catch (error) {
             console.error("삭제 중 에러:", error);
             alert("삭제 중 오류 발생");
@@ -101,27 +131,31 @@ const BlogDetail: FC = () => {
                             ))}
                         </p>
 
-                        <div className="btn_box">
-                            <Button
-                                className="update_btn caption"
-                                as={Link}
-                                to={`/blog-update/${id}`}
-                            >
-                                Update
-                            </Button>
-                            <Button
-                                $black
-                                className="delete_btn caption"
-                                onClick={handleDelete}
-                            >
-                                Delete
-                            </Button>
-                        </div>
+                        {isOwner && (
+                            <div className="btn_box">
+                                <Button
+                                    className="update_btn caption"
+                                    as={Link}
+                                    to={`/blogs/${id}/edit`}
+                                >
+                                    Update
+                                </Button>
+                                <Button
+                                    $black
+                                    className="delete_btn caption"
+                                    onClick={handleDelete}
+                                >
+                                    Delete
+                                </Button>
+                            </div>
+                        )}
 
                         <div className="written_by_box">
                             <img src={blog.writerImage} alt="writer" />
                             <div className="txt_box">
-                                <span className="written_by">WRITTEN BY</span>
+                                <span className="written_by">
+                                    <Trans i18nKey="writtenBy" />
+                                </span>
                                 <span className="name">{blog.writerName}</span>
                                 <span className="caption">{blog.career}</span>
                             </div>
@@ -130,7 +164,9 @@ const BlogDetail: FC = () => {
                         <span className="line"></span>
 
                         <form className="conversation">
-                            <p className="input_title">Join the conversation</p>
+                            <p className="input_title">
+                                <Trans i18nKey="joinTheConversation" />
+                            </p>
                             <div className="img_textarea">
                                 <img
                                     src="/team-app-ts/img/blog_writer_2.svg"
@@ -154,6 +190,16 @@ const BlogDetail: FC = () => {
                     <p>Loading...</p>
                 )}
             </div>
+            {/* 모달 */}
+            {isSuccessOpen && (
+                <SuccessModal
+                    message={t("blogDeleteSuccess")}
+                    onClose={() => {
+                        setIsSuccessOpen(false);
+                        navigate("/blogs");
+                    }}
+                />
+            )}
         </main>
     );
 };

@@ -4,6 +4,8 @@ import BlogCard from "../components/BlogCard";
 import "../styles/Blog.scss";
 import Button from "../components/Button";
 import { useEffect, useState } from "react";
+import { Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 interface BlogCardData {
     id: number;
@@ -18,6 +20,8 @@ interface BlogCardData {
 
 const BlogList: FC = () => {
     const [blogCardData, setBlogCardData] = useState<BlogCardData[]>([]);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         fetch("/api/blogs")
@@ -38,10 +42,11 @@ const BlogList: FC = () => {
         <main id="main-content" className="blog" tabIndex={-1}>
             <div className="container">
                 <div className="title_box">
-                    <h1 className="title">Blog</h1>
+                    <h1 className="title">
+                        <Trans i18nKey="blogTitle" />
+                    </h1>
                     <p className="paragraph">
-                        Our latest web design tips, tricks, insights and
-                        resources hot off the presses.
+                        <Trans i18nKey="blogSubtitle" />
                     </p>
                 </div>
                 <div className="card_box">

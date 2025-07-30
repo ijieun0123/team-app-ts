@@ -1,6 +1,7 @@
 import "../styles/Header.scss";
 import { Link, useLocation } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import LanguageToggleBtn from "./LanguageToggleBtn";
 
 const Header: React.FC = () => {
     const location = useLocation();
@@ -130,10 +131,11 @@ const Header: React.FC = () => {
                         />
                     </Link>
                     <Link to="#">Product</Link>
-                    <Link to="/blog">Blog</Link>
-                    <Link to="/blog-write">Write</Link>
+                    <Link to="/blogs">Blog</Link>
+                    <Link to="/blogs/new">Write</Link>
                     <Link to="#">Contact</Link>
                     <Link to="/login">Login</Link>
+                    <LanguageToggleBtn />
                     <Link to="#" className="get_access_btn">
                         Get Access
                     </Link>
