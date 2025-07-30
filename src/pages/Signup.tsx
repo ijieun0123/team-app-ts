@@ -19,7 +19,7 @@ const Signup: FC = () => {
     const [career, setCareer] = useState("");
     const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
-    const { t: _t } = useTranslation();
+    const { t } = useTranslation();
 
     const { error, setError, handleError } = useErrorHandler([
         "email",
