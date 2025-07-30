@@ -22,7 +22,7 @@ const BlogWrite: FC = () => {
         "description",
     ]);
 
-    const { t } = useTranslation();
+    const { t: _t } = useTranslation();
 
     // 1. id가 있을 때 기존 데이터 불러오기
     useEffect(() => {

@@ -14,7 +14,7 @@ const Login: FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const { t } = useTranslation();
+    const { t: _t } = useTranslation();
 
     const { error, setError, handleError } = useErrorHandler([
         "email",

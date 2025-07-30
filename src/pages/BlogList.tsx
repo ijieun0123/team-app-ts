@@ -21,7 +21,7 @@ interface BlogCardData {
 const BlogList: FC = () => {
     const [blogCardData, setBlogCardData] = useState<BlogCardData[]>([]);
 
-    const { t } = useTranslation();
+    const { t: _t } = useTranslation();
 
     useEffect(() => {
         fetch("/api/blogs")

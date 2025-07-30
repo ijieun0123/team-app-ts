@@ -68,7 +68,7 @@ interface ErrorModalProps {
 }
 
 const ErrorModal: React.FC<ErrorModalProps> = ({ error, onClose }) => {
-    const { t } = useTranslation();
+    const { t: _t } = useTranslation();
 
     if (!error) return null;
 

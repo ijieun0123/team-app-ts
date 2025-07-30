@@ -15,7 +15,7 @@ const Home: FC = () => {
     const cardBoxRef = useRef<HTMLDivElement | null>(null);
     const [isVisible, setIsVisible] = useState(false);
 
-    const { t } = useTranslation();
+    const { t: _t } = useTranslation();
 
     useEffect(() => {
         // txtBox scroll effect

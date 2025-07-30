@@ -28,7 +28,7 @@ const BlogDetail: FC = () => {
     const [currentUserProfileImg, setCurrentUserProfileImg] = useState("");
     const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
-    const { t } = useTranslation();
+    const { t: _t } = useTranslation();
 
     const isOwner = useMemo(() => {
         return blog && currentUserEmail === blog.email;
