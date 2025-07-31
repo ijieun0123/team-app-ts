@@ -112,6 +112,7 @@ const BlogDetail: FC = () => {
                                         : "/team-app-ts/img/avatar.png"
                                 }
                                 alt="writer"
+                                loading="lazy"
                             />
                             <span className="caption">{blog.writerName}</span>
                             <span className="line">|</span>

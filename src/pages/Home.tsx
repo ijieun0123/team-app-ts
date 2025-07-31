@@ -152,6 +152,7 @@ const Home: FC = () => {
                             src="/team-app-ts/img/desktop_management.svg"
                             alt="management image"
                             className="management_img"
+                            loading="lazy"
                         />
                     </picture>
                     <div className={`txt_box ${isVisible ? "visible" : ""}`}>
@@ -220,6 +221,7 @@ const Home: FC = () => {
                             src="/team-app-ts/img/desktop_scheduling.svg"
                             alt="schedule image"
                             className="schedule_img"
+                            loading="lazy"
                         />
                     </picture>
                 </div>

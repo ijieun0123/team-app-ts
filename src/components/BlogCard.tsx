@@ -98,7 +98,7 @@ const BlogCard = ({
 
     return (
         <Card onClick={handleClick} aria-label={`블로그 카드 - ${title}`}>
-            <CardImg src={cardImage} alt="카드 이미지" />
+            <CardImg src={cardImage} alt="카드 이미지" loading="lazy" />
             <TxtBox>
                 <CardTitle className="card_title">{title}</CardTitle>
                 <Description className="caption">{description}</Description>

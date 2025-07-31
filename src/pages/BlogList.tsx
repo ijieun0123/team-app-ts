@@ -82,7 +82,6 @@ const BlogList: FC = () => {
                         />
                     ))}
                 </div>
-                {/* <Button className="caption next_btn">Next</Button> */}
                 <Pagination
                     currentPage={currentPage}
                     totalPages={totalPages}
