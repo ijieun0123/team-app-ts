@@ -8,6 +8,7 @@ import { useErrorHandler } from "../hooks/useErrorHandler";
 import SuccessModal from "../components/SuccessModal";
 import { Trans } from "react-i18next";
 import { useTranslation } from "react-i18next";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const Signup: FC = () => {
     const navigate = useNavigate();
@@ -39,7 +40,7 @@ const Signup: FC = () => {
         };
 
         try {
-            const response = await fetch(`/api/auth/signup`, {
+            const response = await fetch(`${API_BASE_URL}/api/auth/signup`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

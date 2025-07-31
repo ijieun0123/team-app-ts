@@ -7,6 +7,7 @@ import { useState, useEffect, useMemo } from "react";
 import SuccessModal from "../components/SuccessModal";
 import { Trans } from "react-i18next";
 import { useTranslation } from "react-i18next";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 type Blog = {
     title: string;
@@ -38,7 +39,7 @@ const BlogDetail: FC = () => {
         const fetchCurrentUser = async () => {
             const token = localStorage.getItem("accessToken");
 
-            const response = await fetch("/api/users/me", {
+            const response = await fetch(`${API_BASE_URL}/api/users/me`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -57,7 +58,7 @@ const BlogDetail: FC = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const response = await fetch(`/api/blogs/${id}`);
+                const response = await fetch(`${API_BASE_URL}/api/blogs/${id}`);
                 if (!response.ok) {
                     throw new Error("블로그 데이터를 불러오는데 실패했습니다");
                 }
@@ -79,7 +80,7 @@ const BlogDetail: FC = () => {
         try {
             const token = localStorage.getItem("accessToken");
 
-            const response = await fetch(`/api/blogs/${id}`, {
+            const response = await fetch(`${API_BASE_URL}/api/blogs/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

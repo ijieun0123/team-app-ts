@@ -6,6 +6,7 @@ import Pagination from "../components/Pagination";
 import { useEffect, useState } from "react";
 import { Trans } from "react-i18next";
 import { useTranslation } from "react-i18next";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 interface BlogCardData {
     id: number;
@@ -28,7 +29,7 @@ const BlogList: FC = () => {
     const pageSize = 9;
 
     const fetchBlogData = async (page: number) => {
-        fetch(`/api/blogs?page=${page}&size=${pageSize}`)
+        fetch(`${API_BASE_URL}/api/blogs?page=${page}&size=${pageSize}`)
             .then(res => {
                 if (!res.ok)
                     throw new Error("블로그 데이터를 불러오는 데 실패했어요.");

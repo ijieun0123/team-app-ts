@@ -7,6 +7,7 @@ import ErrorModal from "../components/ErrorModal";
 import { useErrorHandler } from "../hooks/useErrorHandler";
 import { Trans } from "react-i18next";
 import { useTranslation } from "react-i18next";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const BlogWrite: FC = () => {
     const { id } = useParams<{ id: string }>(); // URL에서 id 추출
@@ -27,7 +28,7 @@ const BlogWrite: FC = () => {
     // 1. id가 있을 때 기존 데이터 불러오기
     useEffect(() => {
         if (id) {
-            fetch(`/api/blogs/${id}`)
+            fetch(`${API_BASE_URL}/api/blogs/${id}`)
                 .then(res => {
                     if (!res.ok) throw new Error("Failed to fetch blog");
                     return res.json();
@@ -55,14 +56,17 @@ const BlogWrite: FC = () => {
         try {
             const token = localStorage.getItem("accessToken");
 
-            const response = await fetch(`/api/blogs${id ? `/${id}` : ""}`, {
-                method: id ? "PATCH" : "POST", // 수정: PUT, 신규 생성: POST
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify(data),
-            });
+            const response = await fetch(
+                `${API_BASE_URL}/api/blogs${id ? `/${id}` : ""}`,
+                {
+                    method: id ? "PATCH" : "POST", // 수정: PUT, 신규 생성: POST
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(data),
+                }
+            );
 
             if (!response.ok) {
                 if (!response.ok) {

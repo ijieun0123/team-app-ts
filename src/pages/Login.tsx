@@ -7,6 +7,7 @@ import ErrorModal from "../components/ErrorModal";
 import { Trans } from "react-i18next";
 import { useTranslation } from "react-i18next";
 import { useErrorHandler } from "../hooks/useErrorHandler";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const Login: FC = () => {
     const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Login: FC = () => {
         };
 
         try {
-            const response = await fetch(`/api/auth/login`, {
+            const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
