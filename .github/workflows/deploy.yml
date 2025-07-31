@@ -23,6 +23,9 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
+            - name: Create .env.production
+              run: echo "VITE_API_BASE_URL=https://team-app-java.up.railway.app" > .env.production
+
             - name: Build project
               run: npm run build
 
