@@ -29,9 +29,7 @@ const BlogList: FC = () => {
     const pageSize = 9;
 
     const fetchBlogData = async (page: number) => {
-        fetch(
-            `https://team-app-java.up.railway.app/api/blogs?page=${page}&size=${pageSize}`
-        )
+        fetch(`${API_BASE_URL}/api/blogs?page=${page}&size=${pageSize}`)
             .then(res => {
                 if (!res.ok)
                     throw new Error("블로그 데이터를 불러오는 데 실패했어요.");
