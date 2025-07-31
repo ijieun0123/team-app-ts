@@ -1,8 +1,8 @@
 import type { FC } from "react";
 // import { blogCardData } from "../data/blogCardData";
 import BlogCard from "../components/BlogCard";
-import "../styles/Blog.scss";
-import Button from "../components/Button";
+import "../styles/BlogList.scss";
+import Pagination from "../components/Pagination";
 import { useEffect, useState } from "react";
 import { Trans } from "react-i18next";
 import { useTranslation } from "react-i18next";
@@ -20,22 +20,32 @@ interface BlogCardData {
 
 const BlogList: FC = () => {
     const [blogCardData, setBlogCardData] = useState<BlogCardData[]>([]);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
 
     const { t: _t } = useTranslation();
 
-    useEffect(() => {
-        fetch("/api/blogs")
+    const pageSize = 9;
+
+    const fetchBlogData = async (page: number) => {
+        fetch(`/api/blogs?page=${page}&size=${pageSize}`)
             .then(res => {
                 if (!res.ok)
                     throw new Error("블로그 데이터를 불러오는 데 실패했어요.");
                 return res.json();
             })
             .then(data => {
-                setBlogCardData(data);
+                setBlogCardData(data.content);
+                setCurrentPage(data.currentPage);
+                setTotalPages(data.totalPages);
             })
             .catch(err => {
                 console.error("에러 발생:", err);
             });
+    };
+
+    useEffect(() => {
+        fetchBlogData(0);
     }, []);
 
     return (
@@ -72,7 +82,16 @@ const BlogList: FC = () => {
                         />
                     ))}
                 </div>
-                <Button className="caption next_btn">Next</Button>
+                {/* <Button className="caption next_btn">Next</Button> */}
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    pageGroupSize={5}
+                    onPageChange={page => {
+                        fetchBlogData(page);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                />
             </div>
         </main>
     );
