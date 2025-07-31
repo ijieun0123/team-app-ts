@@ -7,7 +7,7 @@ export default defineConfig({
     resolve: {
         extensions: [".js", ".ts", ".jsx", ".tsx"],
     },
-    base: "/team-app-ts/",
+    // base: "/team-app-ts/",
     server: {
         proxy: {
             "/api": {
