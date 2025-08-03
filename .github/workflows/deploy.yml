@@ -25,7 +25,7 @@ jobs:
 
             - name: Create .env.production
               run: |
-                  echo "VITE_API_BASE_URL=https://team-app-java.up.railway.app" > .env.production
+                  echo "VITE_API_BASE_URL=https://team-app-java-production.up.railway.app" > .env.production
                   cat .env.production
 
             - name: Build project
